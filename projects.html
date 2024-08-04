@@ -6,11 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        /* Add styles for project boxes */
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .project-category {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .project-category h2 {
+            text-align: center;
+            background: #f0f0f0;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .project-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            width: calc(33.333% - 1rem);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .project-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .project-item .project-brief,
+        .project-item .project-details {
+            padding: 1rem;
+        }
+        .project-item .project-brief {
+            display: block;
+        }
+        .project-item .project-details {
+            display: none;
+        }
+        .project-item.expanded {
+            width: 100%;
+            z-index: 1;
+            transform: scale(1.05);
+        }
+        .project-item.expanded .project-details {
+            display: block;
+        }
+    </style>
 </head>
 <body class="is-preload">
 
     <!-- Wrapper -->
     <div id="wrapper">
+
         <!-- Header -->
         <header id="header">
             <a href="index.html" class="logo">Anibal Guerrero Hernandez</a>
@@ -42,18 +96,62 @@
                 <header class="major">
                     <h1>Projects</h1>
                 </header>
-                <div class="content">
-                    <div class="project-item">
-                        <h3>Design and Control of a Rocket Hopper Demonstrator</h3>
-                        <p>Developed a DDPG and TD3-based reinforcement learning algorithm for 1D Attitude control, optimizing launch, descent, and navigation through 10+ physical test launches. Achieved a 63% improvement in optimization.</p>
+                
+                <!-- Aerospace Engineering Projects -->
+                <div class="project-category">
+                    <header class="major">
+                        <h2>Aerospace Engineering</h2>
+                    </header>
+                    <div class="project-container">
+                        <!-- Project Item 1 -->
+                        <div class="project-item" onclick="toggleExpand(this)">
+                            <img src="images/pic01.jpg" alt="Design and Control of a Rocket Hopper Demonstrator" />
+                            <div class="project-brief">
+                                <h3>Design and Control of a Rocket Hopper Demonstrator</h3>
+                                <p>Developed a DDPG and TD3-based reinforcement learning algorithm for 1D Attitude control...</p>
+                            </div>
+                            <div class="project-details">
+                                <p>Developed a DDPG and TD3-based reinforcement learning algorithm for 1D Attitude control, optimizing launch, descent, and navigation through 10+ physical test launches. Achieved a 63% improvement in optimization.</p>
+                                <p>Detailed description of the project including challenges faced, results, and future work.</p>
+                                <!-- Add more detailed content here -->
+                            </div>
+                        </div>
+                        <!-- Project Item 2 -->
+                        <div class="project-item" onclick="toggleExpand(this)">
+                            <img src="images/pic01.jpg" alt="Spacecraft Operations: Interplanetary Mission to Mars" />
+                            <div class="project-brief">
+                                <h3>Spacecraft Operations: Interplanetary Mission to Mars</h3>
+                                <p>Designed an interplanetary mission to Mars using mission planning tools like GMAT...</p>
+                            </div>
+                            <div class="project-details">
+                                <p>Designed an interplanetary mission to Mars using mission planning tools like GMAT and STK; visited DLRs GSOC to learn about mission control sequence development and deployment.</p>
+                                <p>Detailed description of the project including planning, simulations, and mission control procedures.</p>
+                                <!-- Add more detailed content here -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-item">
-                        <h3>Adversarial Attack on State-of-the-Art Classification Network</h3>
-                        <p>Developed an adversarial attack on a classification network, improving model robustness by 40% during testing.</p>
-                    </div>
-                    <div class="project-item">
-                        <h3>Spacecraft Operations: Interplanetary Mission to Mars</h3>
-                        <p>Designed an interplanetary mission to Mars using mission planning tools like GMAT and STK; visited DLRs GSOC to learn about mission control sequence development and deployment.</p>
+                </div>
+                
+                <!-- Computer Science Projects -->
+                <div class="project-category">
+                    <header class="major">
+                        <h2>Computer Science</h2>
+                    </header>
+                    <div class="project-container">
+                        <!-- Project Item 1 -->
+                        <div class="project-item" onclick="toggleExpand(this)">
+                            <img src="images/pic01.jpg" alt="Adversarial Attack on State-of-the-Art Classification Network" />
+                            <div class="project-brief">
+                                <h3>Adversarial Attack on State-of-the-Art Classification Network</h3>
+                                <p>Developed an adversarial attack on a classification network...</p>
+                            </div>
+                            <div class="project-details">
+                                <p>Developed an adversarial attack on a classification network, improving model robustness by 40% during testing.</p>
+                                <p>Detailed description of the project including methodology, experiments, and conclusions.</p>
+                                <!-- Add more detailed content here -->
+                            </div>
+                        </div>
+                        <!-- Add more Computer Science projects here -->
                     </div>
                 </div>
             </section>
@@ -91,4 +189,22 @@
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // JavaScript for toggling project expand/collapse
+        function toggleExpand(projectItem) {
+            const allItems = document.querySelectorAll('.project-item');
+            allItems.forEach(item => {
+                if (item !== projectItem) {
+                    item.classList.remove('expanded');
+                }
+            });
+            projectItem.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
