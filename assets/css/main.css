@@ -2685,8 +2685,9 @@ input, select, textarea {
 		display: flex;
 		cursor: default;
 		list-style: none;
-		margin-left: -1rem;
-		padding-left: 0;
+		/* margin-left: -1rem;
+		padding-left: 0; */
+		justify-content: center; /* Add this line to center the buttons */
 	}
 
 		ul.actions li {
