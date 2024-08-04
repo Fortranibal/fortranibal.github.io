@@ -6,6 +6,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        .experience-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: flex-start;
+        }
+        .experience-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            width: calc(25% - 1rem);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .experience-item .logo-container {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: #fff;
+        }
+        .experience-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .experience-item .experience-brief,
+        .experience-item .experience-details {
+            padding: 1rem;
+        }
+        .experience-item .experience-brief {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .experience-item .experience-brief h3 {
+            margin-bottom: 0.5rem;
+        }
+        .experience-item .date {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        .experience-item .brief-description {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        .experience-item .experience-details {
+            display: none;
+        }
+        .experience-item.expanded {
+            width: 100%;
+            order: -1;
+        }
+        .experience-item.expanded .experience-details {
+            display: block;
+        }
+        .experience-item.collapsed {
+            width: calc(25% - 1rem);
+        }
+        .experience-item.collapsed .experience-brief h3 {
+            font-size: 0.9em;
+        }
+        .experience-item.collapsed .experience-brief p {
+            font-size: 0.8em;
+        }
+        .experience-item {
+            /* ... existing styles ... */
+            width: calc(33.33% - 1rem); /* Change to 3 items per row instead of 4 */
+            max-width: 350px; /* Add a max-width to prevent items from getting too wide */
+        }
+
+        .experience-item .experience-brief {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            max-width: 100%; /* Ensure content doesn't overflow */
+        }
+
+        .experience-item .brief-description {
+            font-size: 0.9em;
+            line-height: 1.4;
+            overflow-wrap: break-word; /* Allow long words to break */
+            word-wrap: break-word;
+            hyphens: auto; /* Enable hyphenation for very long words */
+        }
+
+        .experience-item.expanded {
+            width: 100%;
+            max-width: none; /* Allow expanded item to take full width */
+        }
+
+        .experience-item.collapsed {
+            width: calc(33.33% - 1rem);
+            max-width: 350px;
+        }
+
+        @media screen and (max-width: 980px) {
+            .experience-item,
+            .experience-item.collapsed {
+                width: calc(50% - 1rem); /* 2 items per row on smaller screens */
+            }
+        }
+
+        @media screen and (max-width: 736px) {
+            .experience-item,
+            .experience-item.collapsed {
+                width: 100%; /* 1 item per row on mobile */
+                max-width: none;
+            }
+        }
+
+
+    </style>
+
 </head>
 <body class="is-preload">
 
@@ -26,12 +148,9 @@
                 <li><a href="awards.html">Awards</a></li>
                 <li><a href="resume.html">Resume</a></li>
             </ul>
-            <ul class="icons">
-                <li><a href="https://twitter.com/yourprofile" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="https://facebook.com/yourprofile" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="https://instagram.com/yourprofile" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="https://github.com/yourprofile" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-                <li><a href="https://linkedin.com/in/anibal-guerrero" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <ul class="icons alt">
+                <li><a href="https://github.com/Fortranibal" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                <li><a href="https://linkedin.com/in/anibal-guerrero" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
             </ul>
         </nav>
 
@@ -42,45 +161,80 @@
                 <header class="major">
                     <h1>Experience</h1>
                 </header>
-                <div class="content">
-                    <div class="experience-item">
-                        <h3>Student Researcher, DLR</h3>
-                        <p>Jan 2024 - Present</p>
-                        <ul>
-                            <li>Researched and developed a CNN-based SLAM pipeline for autonomous asteroid navigation.</li>
-                            <li>Improved computational efficiency by 30% for onboard systems compared to traditional models.</li>
-                            <li>Replaced traditional image processing methods with a robust, noise-resistant approach for feature detection and tracking, enhancing 2D-3D matching.</li>
-                            <li>Created and tested 120,000 synthetic 3D asteroid models and real imagery for simulation and validation, ensuring practical applicability.</li>
-                        </ul>
+                <div class="experience-container">
+                    <div class="experience-item" onclick="toggleExpand(this)">
+                        <div class="logo-container">
+                            <img src="images/logos/DLR.png" alt="DLR Logo" />
+                        </div>
+                        <div class="experience-brief">
+                            <h3>Student Researcher</h3>
+                            <h5>DLR - German Aerospace Center</h5>
+                            <p class="date">Jan 2024 - Present</p>
+                            <p class="brief-description">Department of Perception and Cognition - DLR Institute for Robotics and Mechatronics</p>
+                        </div>
+                        <div class="experience-details">
+                            <ul>
+                                <li>Enhanced the Outdoor Artificial Intelligence Systems Simulator (OAISYS) to generate a synthetic asteroid image dataset outputting RGB-D, Mask and 6D Pose data, compatible with CNN models for detection, feature extraction and pose estimation.</li>
+                                <li>Developing machine learning models for analyzing generated synthetic asteroid image datasets.</li>
+                                <li>Researched and developed a CNN-based SLAM pipeline for autonomous asteroid navigation.</li>
+                                <li>Improved computational efficiency by 30% for onboard systems compared to traditional models.</li>
+                                <li>Replaced traditional image processing methods with a robust, noise-resistant approach for feature detection and tracking, enhancing 2D-3D matching.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="experience-item">
-                        <h3>Project WESP Co-Lead, WARR e.V.</h3>
-                        <p>Jan 2024 - Jul 2024</p>
-                        <ul>
-                            <li>Co-led WESP’s EX-1E project, marking the first staged rocket in WARR and European student rocketry history.</li>
-                            <li>Achieved a 7.8km launch at Spaceport America Cup 2024, securing 3rd place in the 30K COTS category and 16th overall out of 122.</li>
-                            <li>Managed a team of 40+ members, overseeing 25,000+ engineering hours and contributing 1,200+ personal hours.</li>
-                            <li>Directed the EX-1D launch in Germany, ensuring 100% compliance with safety regulations and protocols despite challenging weather.</li>
-                        </ul>
+                
+                    <div class="experience-item" onclick="toggleExpand(this)">
+                        <div class="logo-container">
+                            <img src="images/logos/WARR.png" alt="WARR Logo" />
+                        </div>
+                        <div class="experience-brief">
+                            <h3>Project WESP Co-Lead, WARR e.V.</h3>
+                            <p class="date">Jan 2024 - Jul 2024</p>
+                            <p class="brief-description">Co-led WESP's EX-1E project, marking the first staged rocket in WARR and European student rocketry history.</p>
+                        </div>
+                        <div class="experience-details">
+                            <ul>
+                                <li>Achieved a 7.8km launch at Spaceport America Cup 2024, securing 3rd place in the 30K COTS category and 16th overall out of 122.</li>
+                                <li>Managed a team of 40+ members, overseeing 25,000+ engineering hours and contributing 1,200+ personal hours.</li>
+                                <li>Directed the EX-1D launch in Germany, ensuring 100% compliance with safety regulations and protocols despite challenging weather.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="experience-item">
-                        <h3>Simulations Team Lead, WARR e.V.</h3>
-                        <p>May 2023 - Jul 2024</p>
-                        <ul>
-                            <li>Established WSPR (WESP Simulation Predictive Rocketry Tool) in Python for 6 DOF simulations, enhancing rocket stability analysis and mission objectives.</li>
-                            <li>Implemented wind impact analysis and Monte Carlo simulations, enhancing apogee and impact prediction accuracy by 135%.</li>
-                            <li>Created user-friendly GUIs for single- and multi-stage rocket simulations, leading to a 100% increase in user engagement.</li>
-                            <li>Produced a data logger for automated LaTeX report generation and analyzed telemetry data for future design optimizations.</li>
-                        </ul>
+                
+                    <div class="experience-item" onclick="toggleExpand(this)">
+                        <div class="logo-container">
+                            <img src="images/logos/WSPR.png" alt="WSPR Logo" />
+                        </div>
+                        <div class="experience-brief">
+                            <h3>Simulations Team Lead, WARR e.V.</h3>
+                            <p class="date">May 2023 - Jul 2024</p>
+                            <p class="brief-description">Established WSPR (WESP Simulation Predictive Rocketry Tool) in Python for 6 DOF simulations.</p>
+                        </div>
+                        <div class="experience-details">
+                            <ul>
+                                <li>Implemented wind impact analysis and Monte Carlo simulations, enhancing apogee and impact prediction accuracy by 135%.</li>
+                                <li>Created user-friendly GUIs for single- and multi-stage rocket simulations, leading to a 100% increase in user engagement.</li>
+                                <li>Produced a data logger for automated LaTeX report generation and analyzed telemetry data for future design optimizations.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="experience-item">
-                        <h3>Asteroid Mining Engineer Intern, Asteroid Mining Corporation Ltd</h3>
-                        <p>May 2022 - Sep 2022</p>
-                        <ul>
-                            <li>Conducted techno-economic analysis and constructed financial models for an asteroid mining venture, assessing viability and market demand for PGMs.</li>
-                            <li>Analyzed hydrogen energy use cases and ESG relevance, identifying future opportunities and trends by 2030.</li>
-                            <li>Formulated an award-winning 98-page internal scoping study, synthesizing market forecasts and strategic insights.</li>
-                        </ul>
+                
+                    <div class="experience-item" onclick="toggleExpand(this)">
+                        <div class="logo-container">
+                            <img src="images/logos/AMC.png" alt="Asteroid Mining Corporation Logo" />
+                        </div>
+                        <div class="experience-brief">
+                            <h3>Asteroid Mining Engineer Intern, Asteroid Mining Corporation Ltd</h3>
+                            <p class="date">May 2022 - Sep 2022</p>
+                            <p class="brief-description">Conducted techno-economic analysis and constructed financial models for an asteroid mining venture.</p>
+                        </div>
+                        <div class="experience-details">
+                            <ul>
+                                <li>Analyzed hydrogen energy use cases and ESG relevance, identifying future opportunities and trends by 2030.</li>
+                                <li>Formulated an award-winning 98-page internal scoping study, synthesizing market forecasts and strategic insights.</li>
+                                <li>Assessed viability and market demand for PGMs in the context of asteroid mining operations.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -104,10 +258,7 @@
                 <section>
                     <h3>Social</h3>
                     <ul class="icons alt">
-                        <li><a href="https://twitter.com/yourprofile" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="https://facebook.com/yourprofile" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-                        <li><a href="https://instagram.com/yourprofile" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-                        <li><a href="https://github.com/yourprofile" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="https://github.com/Fortranibal" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
                         <li><a href="https://linkedin.com/in/anibal-guerrero" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
                     </ul>
                 </section>
@@ -123,6 +274,25 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        function toggleExpand(clickedItem) {
+            const allItems = document.querySelectorAll('.experience-item');
+            const wasExpanded = clickedItem.classList.contains('expanded');
 
+            allItems.forEach(item => {
+                item.classList.remove('expanded', 'collapsed');
+                if (item !== clickedItem) {
+                    item.classList.add('collapsed');
+                }
+            });
+
+            if (!wasExpanded) {
+                clickedItem.classList.add('expanded');
+                clickedItem.classList.remove('collapsed');
+            } else {
+                allItems.forEach(item => item.classList.remove('collapsed'));
+            }
+        }
+    </script>
 </body>
 </html>
