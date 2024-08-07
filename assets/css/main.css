@@ -2947,7 +2947,7 @@ input, select, textarea {
 		}
 
 		header.major {
-			margin: 0 0 4rem 0;
+			margin: 0 0 0.5rem 0;
 			text-align: center;
 		}
 
@@ -3788,10 +3788,6 @@ input, select, textarea {
 			text-align: center;
 		}
 
-		#main > .post {
-			padding: 8rem 8rem 6rem 8rem ;
-		}
-
 			#main > .post header.major > .date {
 				margin-top: -2rem;
 			}
@@ -3809,7 +3805,7 @@ input, select, textarea {
 			@media screen and (max-width: 1280px) {
 
 				#main > .post {
-					padding: 6rem 4rem 4rem 4rem ;
+					/* padding: 6rem 4rem 4rem 4rem ; */
 				}
 
 			}
@@ -3817,7 +3813,7 @@ input, select, textarea {
 			@media screen and (max-width: 736px) {
 
 				#main > .post {
-					padding: 4rem 2rem 2rem 2rem ;
+					/* padding: 4rem 2rem 2rem 2rem ; */
 				}
 
 					#main > .post header.major > .date {

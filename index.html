@@ -7,12 +7,10 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>
-        /* Existing styles */
         .experience-container {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            justify-content: flex-start;
         }
     
         .experience-item {
@@ -20,10 +18,8 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
-            width: calc(33.33% - 0.67rem);
             transition: all 0.3s ease;
             cursor: pointer;
-            margin-bottom: 1rem;
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -35,7 +31,11 @@
         }
     
         .experience-item.full-width {
-            width: calc(66.66% - 0.33rem);
+            grid-column: span 2;
+        }
+    
+        .experience-item.vertical-double {
+            grid-row: span 2;
         }
     
         .experience-item .logo-container {
@@ -45,6 +45,10 @@
             justify-content: center;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    
+        .experience-item.vertical-double .logo-container {
+            height: 400px;
         }
     
         .experience-item img,
@@ -85,36 +89,42 @@
         }
     
         .experience-item.expanded {
-            width: 100%;
-            order: -1;
+            grid-column: 1 / -1;
+            grid-row: span 1;
         }
     
         .experience-item.expanded .experience-details {
             display: block;
         }
     
-        .experience-item.collapsed {
-            width: calc(33.33% - 0.67rem);
-        }
-    
-        /* Media queries */
         @media screen and (max-width: 980px) {
-            .experience-item,
-            .experience-item.collapsed,
-            .experience-item.full-width {
-                width: calc(50% - 0.5rem);
+            .experience-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+    
+            .experience-item.full-width,
+            .experience-item.vertical-double {
+                grid-column: span 2;
             }
         }
     
         @media screen and (max-width: 736px) {
+            .experience-container {
+                grid-template-columns: 1fr;
+            }
+    
             .experience-item,
-            .experience-item.collapsed,
-            .experience-item.full-width {
-                width: 100%;
+            .experience-item.full-width,
+            .experience-item.vertical-double {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+    
+            .experience-item.vertical-double .logo-container {
+                height: 200px;
             }
         }
     
-        /* Intro container styles */
         .intro-container {
             display: flex;
             justify-content: space-between;
@@ -125,23 +135,23 @@
         }
     
         .intro-content {
-            width: 100%;
-            height: 100%;
-            flex: 1;
-            padding-right: 2rem;
-            position: absolute;
-            top: 25%;
-            padding-left: 10%;
-        }
-    
-        .intro-image {
-            flex: 1;
-            text-align: right;
-            width: 100%;
-            height: 100%;
-        }
-    
-        .intro-image img {
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        padding-right: 2rem;
+        position: absolute;
+        top: 25%;
+        padding-left: 10%;
+    }
+
+    .intro-image {
+        flex: 1;
+        text-align: right;
+        width: 100%;
+        height: 100%;
+    }
+
+    .intro-image img {
         max-width: 30%;
         height: auto;
         max-height: 80vh;
@@ -152,7 +162,6 @@
         max-width: 70%;
     }
 
-    /* Responsive styles for intro container */
     @media screen and (max-width: 980px) {
         .intro-container {
             flex-direction: column;
@@ -187,6 +196,7 @@
         }
     }
 </style>
+
 
     
     
@@ -244,11 +254,12 @@
                 </ul>
                 <header class="major">
                     <h2>Featured Projects</h2>
-                    <p>Explore some of my most significant and innovative work in aerospace engineering and space technology.</p>
+                    <!-- <p>Explore some of my most significant and innovative work in aerospace engineering and space technology.</p> -->
                 </header>
             </article>
 
             <!-- Posts -->
+             <!-- We have full-width (horizontal-double), vertical-double, and - (normal) -->
             <div class="experience-container">
                 <div class="experience-item full-width" onclick="toggleExpand(this)">
                     <div class="logo-container">
@@ -271,7 +282,7 @@
                     </div>
                 </div>
             
-                <div class="experience-item" onclick="toggleExpand(this)">
+                <div class="experience-item vertical-double" onclick="toggleExpand(this)">
                     <div class="logo-container">
                         <video autoplay loop muted playsinline>
                             <source src="videos/Rocket Hopper Demonstrator - Test Campaign Run.mp4" type="video/mp4">
