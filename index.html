@@ -25,7 +25,35 @@
         .video-container {
             max-height: 600px; /* Adjust this value as needed */
         }
-  
+        .intro-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            padding: 0 4rem;
+        }
+
+        .intro-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .intro-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .intro-image img {
+            max-width: 30%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: cover;
+        }
+
+        .intro-text {
+            max-width: 70%;
+        }
+                
     </style>
 </head>
 <body class="is-preload">
@@ -36,13 +64,15 @@
         <!-- Intro -->
         <div id="intro" class="intro-container">
             <div class="intro-content">
-                <h1>Anibal<br /><span style="font-weight: bold; color: #ff6600;">Guerrero Hernandez</span></h1>
-                <p>Aerospace Engineer | Innovator | Space Enthusiast</p>
-                <ul class="actions">
-                    <li><a href="#nav" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-                </ul>
+
+                    <h1>Anibal<br /><span style="font-weight: bold; color: #ff6600;">Guerrero Hernandez</span></h1>
+                    <p>Aerospace Engineer | Innovator | Space Enthusiast</p>
+                    <ul class="actions">
+                        <li><a href="#nav" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+                    </ul>
+
             </div>
-            </div>
+
 
         </div>
 
