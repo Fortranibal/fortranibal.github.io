@@ -92,6 +92,7 @@ input, select, textarea {
 
 	html {
 		box-sizing: border-box;
+		/* scroll-snap-type: y mandatory; */
 	}
 
 	*, *:before, *:after {
@@ -2687,7 +2688,7 @@ input, select, textarea {
 		list-style: none;
 		/* margin-left: -1rem;
 		padding-left: 0; */
-		justify-content: center; /* Add this line to center the buttons */
+		justify-content: left; /* Add this line to center the buttons */
 	}
 
 		ul.actions li {
@@ -3311,7 +3312,7 @@ input, select, textarea {
 		cursor: default;
 		text-align: center;
 		z-index: 1;
-		min-height: 100vh;
+		min-height: 140vh;
 	}
 
 		#intro input, #intro select, #intro textarea {
@@ -3387,7 +3388,7 @@ input, select, textarea {
 				}
 
 		#intro h1 {
-			font-size: 5rem;
+			font-size: 3.5rem;
 			line-height: 1;
 		}
 
@@ -3395,7 +3396,7 @@ input, select, textarea {
 			font-size: 1.25rem;
 			font-style: italic;
 			margin-top: -0.25rem;
-			text-align: center;
+			text-align: left;
 		}
 
 		#intro + #header {
@@ -3491,6 +3492,13 @@ input, select, textarea {
 
 		}
 
+	.intro-content {
+		text-align: left;
+		width: 100%;
+		max-width: 100%; /* Limit the width of the content */
+	}
+		
+
 /* Header */
 
 	#header {
@@ -3510,14 +3518,15 @@ input, select, textarea {
 		-moz-justify-content: -moz-flex-end;
 		-webkit-justify-content: -webkit-flex-end;
 		-ms-justify-content: -ms-flex-end;
-		justify-content: flex-end;
+		justify-content: flex-start;
 		pointer-events: none;
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
-		height: 20rem;
-		padding-bottom: 8rem;
+		height: 13rem;
+		padding-top: 2rem;
+		/* padding-bottom: 8rem; */
 		position: relative;
 		text-align: center;
 		z-index: 2;
@@ -3586,7 +3595,7 @@ input, select, textarea {
 
 			#header {
 				height: 14rem;
-				padding-bottom: 4rem;
+				/* padding-bottom: 4rem; */
 			}
 
 		}
@@ -3594,7 +3603,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#header {
-				padding-bottom: 3rem;
+				/* padding-bottom: 3rem; */
 			}
 
 				#header .logo {
