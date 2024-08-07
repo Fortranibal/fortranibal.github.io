@@ -7,24 +7,114 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>
-        .posts {
+        /* Existing styles */
+        .experience-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            gap: 1rem;
+            justify-content: flex-start;
         }
-
-        .posts article {
-            width: 48%; /* Adjust as needed */
-            margin-bottom: 2rem;
+    
+        .experience-item {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            width: calc(33.33% - 0.67rem);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        .posts article.full-width {
+    
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+    
+        .experience-item.full-width {
+            width: calc(66.66% - 0.33rem);
+        }
+    
+        .experience-item .logo-container {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    
+        .experience-item img,
+        .experience-item video {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-
-        .video-container {
-            max-height: 600px; /* Adjust this value as needed */
+    
+        .experience-item .experience-brief,
+        .experience-item .experience-details {
+            padding: 1rem;
         }
+    
+        .experience-item .experience-brief {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .experience-item .experience-brief h3 {
+            margin-bottom: 0.5rem;
+        }
+    
+        .experience-item .date {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+    
+        .experience-item .brief-description {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+    
+        .experience-item .experience-details {
+            display: none;
+        }
+    
+        .experience-item.expanded {
+            width: 100%;
+            order: -1;
+        }
+    
+        .experience-item.expanded .experience-details {
+            display: block;
+        }
+    
+        .experience-item.collapsed {
+            width: calc(33.33% - 0.67rem);
+        }
+    
+        /* Media queries */
+        @media screen and (max-width: 980px) {
+            .experience-item,
+            .experience-item.collapsed,
+            .experience-item.full-width {
+                width: calc(50% - 0.5rem);
+            }
+        }
+    
+        @media screen and (max-width: 736px) {
+            .experience-item,
+            .experience-item.collapsed,
+            .experience-item.full-width {
+                width: 100%;
+            }
+        }
+    
+        /* Intro container styles */
         .intro-container {
             display: flex;
             justify-content: space-between;
@@ -33,7 +123,7 @@
             padding: 0 0rem;
             position: relative;
         }
-
+    
         .intro-content {
             width: 100%;
             height: 100%;
@@ -43,26 +133,63 @@
             top: 25%;
             padding-left: 10%;
         }
-
+    
         .intro-image {
             flex: 1;
             text-align: right;
             width: 100%;
             height: 100%;
         }
+    
+        .intro-image img {
+        max-width: 30%;
+        height: auto;
+        max-height: 80vh;
+        object-fit: cover;
+    }
+
+    .intro-text {
+        max-width: 70%;
+    }
+
+    /* Responsive styles for intro container */
+    @media screen and (max-width: 980px) {
+        .intro-container {
+            flex-direction: column;
+            height: auto;
+            padding: 2rem 0;
+        }
+
+        .intro-content {
+            position: relative;
+            top: 0;
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+
+        .intro-image {
+            text-align: center;
+            margin-top: 2rem;
+        }
 
         .intro-image img {
-            max-width: 30%;
-            height: auto;
-            max-height: 80vh;
-            object-fit: cover;
+            max-width: 50%;
+        }
+    }
+
+    @media screen and (max-width: 736px) {
+        .intro-image img {
+            max-width: 70%;
         }
 
         .intro-text {
-            max-width: 70%;
+            max-width: 100%;
         }
-                
-    </style>
+    }
+</style>
+
+    
+    
 </head>
 <body class="is-preload">
 
@@ -74,18 +201,13 @@
             <img class="intro-image" src="images/hero/rocket.jpg" alt="Hero Image">
 
             <div class="intro-content">
-
-                    <h1>Anibal<br /><span style="font-weight: bold; color: #ff6600;">Guerrero Hernandez</span></h1>
-                    <p>Aerospace Engineer | Innovator | Space Enthusiast</p>
-                    <ul class="actions">
-                        <li><a href="#nav" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-                    </ul>
-
+                <h1>Anibal<br /><span style="font-weight: bold; color: #ff6600;">Guerrero Hernandez</span></h1>
+                <p>Aerospace Engineer | Innovator | Space Enthusiast</p>
+                <ul class="actions">
+                    <li><a href="#nav" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+                </ul>
             </div>
-
-
         </div>
-
 
         <!-- Header -->
         <header id="header">
@@ -126,60 +248,102 @@
                 </header>
             </article>
 
-        <!-- Posts -->
-        <section class="posts">
-            <article>
-                <header>
-                    <span class="date">Jan 2024 - Jul 2024</span>
-                    <h2><a href="#">Co-Leading Europe's First Staged Student Rocket</a></h2>
-                </header>
-                <a href="#" class="image fit"><img src="images/SAC24/WSPR-PPT-SAC.jpg" alt="Rocket Launch" /></a>
-                <p>Spearheaded Europe's first student-built staged rocket, achieving 7.8km altitude and securing 3rd place at Spaceport America Cup 2024 among 122 global teams.</p>
-                <ul class="actions special">
-                    <li><a href="projects.html" class="button">Learn More</a></li>
-                </ul>
-            </article>
-            <article>
-                <header>
-                    <span class="date">Featured Project</span>
-                    <h2><a href="#">Taming a Rocket Hopper with RL</a></h2>
-                </header>
-                <div class="full-width">
-                    <video autoplay loop muted playsinline class="image fit">
-                        <source src="videos/Rocket Hopper Demonstrator - Test Campaign Run.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+            <!-- Posts -->
+            <div class="experience-container">
+                <div class="experience-item full-width" onclick="toggleExpand(this)">
+                    <div class="logo-container">
+                        <img src="images/SAC24/WSPR-PPT-SAC.jpg" alt="Rocket Launch" />
+                    </div>
+                    <div class="experience-brief">
+                        <h3>Co-Leading Europe's First Staged Student Rocket</h3>
+                        <p class="date">Jan 2024 - Jul 2024</p>
+                        <p class="brief-description">Spearheaded Europe's first student-built staged rocket, achieving 7.8km altitude and securing 3rd place at Spaceport America Cup 2024 among 122 global teams.</p>
+                    </div>
+                    <div class="experience-details">
+                        <ul>
+                            <li>Achieved a 7.8km launch at Spaceport America Cup 2024, securing 3rd place in the 30K COTS category and 16th overall out of 122.</li>
+                            <li>Managed a team of 40+ members, overseeing 25,000+ engineering hours and contributing 1,200+ personal hours.</li>
+                            <li>Directed the EX-1D launch in Germany, ensuring 100% compliance with safety regulations and protocols despite challenging weather.</li>
+                        </ul>
+                        <ul class="actions special">
+                            <li><a href="projects.html" class="button">Learn More</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <p>Developed a DDPG and TD3-based reinforcement learning algorithm for 1D Attitude control, optimizing launch, descent, and navigation through 10+ physical test launches.</p>
-                <ul class="actions special">
-                    <li><a href="projects.html" class="button">Discover More</a></li>
-                </ul>
-            </article>
-            <article>
-                <header>
-                    <span class="date">Jan 2024 - Present</span>
-                    <h2><a href="experience.html">Navigating the Asteroid Frontier at DLR</a></h2>
-                </header>
-                <a href="experience.html" class="image fit"><img src="images/DLR/4-asteroids-sample.png" alt="Asteroid Sample" /></a>
-                <p>Pioneering AI-driven asteroid navigation: Developed cutting-edge CNN-SLAM pipeline, boosting efficiency by 30% and creating a massive dataset of 120,000 synthetic asteroid models.</p>
-                <ul class="actions special">
-                    <li><a href="experience.html" class="button">Explore Further</a></li>
-                </ul>
-            </article>
-            <article>
-                <header>
-                    <span class="date">May 2022 - Sep 2022</span>
-                    <h2><a href="#">Mining the Stars: Asteroid Economics</a></h2>
-                </header>
-                <a href="#" class="image fit"><img src="images/AMC/SCAR-E Spec sheet V4.webp" alt="Asteroid Mining Concept" /></a>
-                <p>Crafted award-winning techno-economic models for groundbreaking asteroid mining ventures, forecasting PGM market trends and hydrogen energy applications through 2030.</p>
-                <ul class="actions special">
-                    <li><a href="experience.html" class="button">Unearth Details</a></li>
-                </ul>
-            </article>
-        </section>
+            
+                <div class="experience-item" onclick="toggleExpand(this)">
+                    <div class="logo-container">
+                        <video autoplay loop muted playsinline>
+                            <source src="videos/Rocket Hopper Demonstrator - Test Campaign Run.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="experience-brief">
+                        <h3>Taming a Rocket Hopper with RL</h3>
+                        <p class="date">Featured Project</p>
+                        <p class="brief-description">Developed a DDPG and TD3-based reinforcement learning algorithm for 1D Attitude control, optimizing launch, descent, and navigation through 10+ physical test launches.</p>
+                    </div>
+                    <div class="experience-details">
+                        <ul>
+                            <li>Implemented DDPG and TD3 algorithms for precise 1D Attitude control in rocket hopper simulations.</li>
+                            <li>Conducted over 10 physical test launches to validate and refine the RL model's performance.</li>
+                            <li>Optimized launch, descent, and navigation parameters through iterative testing and model improvements.</li>
+                        </ul>
+                        <ul class="actions special">
+                            <li><a href="projects.html" class="button">Discover More</a></li>
+                        </ul>
+                    </div>
+                </div>
+            
+                <div class="experience-item" onclick="toggleExpand(this)">
+                    <div class="logo-container">
+                        <img src="images/DLR/4-asteroids-sample.png" alt="Asteroid Sample" />
+                    </div>
+                    <div class="experience-brief">
+                        <h3>Navigating the Asteroid Frontier at DLR</h3>
+                        <p class="date">Jan 2024 - Present</p>
+                        <p class="brief-description">Pioneering AI-driven asteroid navigation: Developed cutting-edge CNN-SLAM pipeline, boosting efficiency by 30% and creating a massive dataset of 120,000 synthetic asteroid models.</p>
+                    </div>
+                    <div class="experience-details">
+                        <ul>
+                            <li>Enhanced the Outdoor Artificial Intelligence Systems Simulator (OAISYS) to generate a synthetic asteroid image dataset outputting RGB-D, Mask and 6D Pose data.</li>
+                            <li>Developed machine learning models for analyzing generated synthetic asteroid image datasets.</li>
+                            <li>Researched and developed a CNN-based SLAM pipeline for autonomous asteroid navigation.</li>
+                            <li>Improved computational efficiency by 30% for onboard systems compared to traditional models.</li>
+                        </ul>
+                        <ul class="actions special">
+                            <li><a href="experience.html" class="button">Explore Further</a></li>
+                        </ul>
+                    </div>
+                </div>
+            
+                <div class="experience-item" onclick="toggleExpand(this)">
+                    <div class="logo-container">
+                        <img src="images/AMC/SCAR-E Spec sheet V4.webp" alt="Asteroid Mining Concept" />
+                    </div>
+                    <div class="experience-brief">
+                        <h3>Mining the Stars: Asteroid Economics</h3>
+                        <p class="date">May 2022 - Sep 2022</p>
+                        <p class="brief-description">Crafted award-winning techno-economic models for groundbreaking asteroid mining ventures, forecasting PGM market trends and hydrogen energy applications through 2030.</p>
+                    </div>
+                    <div class="experience-details">
+                        <ul>
+                            <li>Analyzed hydrogen energy use cases and ESG relevance, identifying future opportunities and trends by 2030.</li>
+                            <li>Formulated an award-winning 98-page internal scoping study, synthesizing market forecasts and strategic insights.</li>
+                            <li>Assessed viability and market demand for PGMs in the context of asteroid mining operations.</li>
+                        </ul>
+                        <ul class="actions special">
+                            <li><a href="experience.html" class="button">Unearth Details</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+                            
 
 
+
+            
             <!-- Footer -->
             <footer>
                 <ul class="actions">
@@ -229,6 +393,26 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
+    <script>
+        function toggleExpand(clickedItem) {
+            const allItems = document.querySelectorAll('.experience-item');
+            const wasExpanded = clickedItem.classList.contains('expanded');
+    
+            allItems.forEach(item => {
+                item.classList.remove('expanded', 'collapsed');
+                if (item !== clickedItem) {
+                    item.classList.add('collapsed');
+                }
+            });
+    
+            if (!wasExpanded) {
+                clickedItem.classList.add('expanded');
+                clickedItem.classList.remove('collapsed');
+            } else {
+                allItems.forEach(item => item.classList.remove('collapsed'));
+            }
+        }
+    </script>
+    
 </body>
 </html>
