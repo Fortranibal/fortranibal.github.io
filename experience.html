@@ -23,6 +23,7 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
     
         .experience-item:hover {
@@ -45,6 +46,42 @@
             justify-content: center;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+    
+        .experience-item.expanded {
+            grid-column: 1 / -1;
+            grid-row: span 1;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    
+        /* TODO: Unoptimized for mobile, entire experience section (logos too big, cards massive) */
+        .experience-item.expanded .logo-container {
+            position: relative;
+            top: 1rem;
+            right: 1rem;
+            width: 10%;
+            height: 10%;
+            border-radius: 5%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-left: 2rem;
+        }
+    
+        .experience-item.expanded .experience-brief {
+            width: calc(100% - 80px);
+            padding-right: 80px;
+        }
+    
+        .experience-item.expanded .experience-details {
+            width: 100%;
+        }
+    
+        .experience-item .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
         }
     
         .experience-item.vertical-double .logo-container {
@@ -55,7 +92,7 @@
         .experience-item video {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Changed from 'cover' to 'contain' */
+            object-fit: contain;
         }
     
         .experience-item .experience-brief,
@@ -88,98 +125,88 @@
             display: none;
         }
     
-        .experience-item.expanded {
-            grid-column: 1 / -1;
-            grid-row: span 1;
-        }
-    
         .experience-item.expanded .experience-details {
             display: block;
         }
-
-        .experience-item.expanded .logo-container {
-            display: none;
-        }
-
-        .expanded-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .expanded-header img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            margin-right: 1rem;
-            border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .expanded-header-text {
-            flex-grow: 1;
-        }
-
-        /* New styles for the image row */
+    
         .image-row {
             display: none;
             justify-content: space-between;
             margin-top: 1rem;
         }
-
+    
         .experience-item.expanded .image-row {
             display: flex;
         }
+    
         .image-row img {
-            width: 30%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+        width: 30%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .image-row img:hover {
+        transform: scale(1.05);
+    }
+
+    @media screen and (max-width: 980px) {
+        .experience-container {
+            grid-template-columns: repeat(2, 1fr);
         }
 
-        .image-row img:hover {
-            transform: scale(1.05);
+        .experience-item.full-width,
+        .experience-item.vertical-double {
+            grid-column: span 2;
         }
-    
-        @media screen and (max-width: 980px) {
-            .experience-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-    
-            .experience-item.full-width,
-            .experience-item.vertical-double {
-                grid-column: span 2;
-            }
-        }
-    
-        @media screen and (max-width: 736px) {
-            .experience-container {
-                grid-template-columns: 1fr;
-            }
-    
-            .experience-item,
-            .experience-item.full-width,
-            .experience-item.vertical-double {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
-    
-            .experience-item.vertical-double .logo-container {
-                height: 200px;
-            }
+    }
 
-            .image-row {
-                flex-direction: column;
-            }
-
-            .image-row img {
-                width: 100%;
-                margin-bottom: 1rem;
-            }
+    @media screen and (max-width: 736px) {
+        .experience-container {
+            grid-template-columns: 1fr;
         }
-    </style>
+
+        .experience-item,
+        .experience-item.full-width,
+        .experience-item.vertical-double {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .experience-item.vertical-double .logo-container {
+            height: 200px;
+        }
+
+        .image-row {
+            flex-direction: column;
+        }
+
+        .image-row img {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item.expanded .experience-brief {
+            width: 100%;
+            padding-right: 0;
+        }
+
+        .experience-item.expanded .logo-container {
+            position: static;
+            width: 100%;
+            height: 200px;
+            border-radius: 0;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item.expanded .logo-container img {
+            border-radius: 0;
+        }
+    }
+</style>
+
 </head>
 <body class="is-preload">
 
@@ -355,9 +382,15 @@
             const wasExpanded = clickedItem.classList.contains('expanded');
     
             allItems.forEach(item => {
-                item.classList.remove('expanded', 'collapsed');
                 if (item !== clickedItem) {
+                    // Fully collapse all other items
+                    item.classList.remove('expanded');
                     item.classList.add('collapsed');
+                    item.querySelector('.image-row').style.display = 'none';
+                    item.querySelector('.experience-details').style.display = 'none';
+                    // Reset logo container for collapsed items
+                    item.querySelector('.logo-container').style = '';
+                    item.querySelector('.logo-container img').style = '';
                 }
             });
     
@@ -365,27 +398,34 @@
                 clickedItem.classList.add('expanded');
                 clickedItem.classList.remove('collapsed');
                 
-                // Show the expanded header, image row, and experience details
-                clickedItem.querySelector('.expanded-header').style.display = 'flex';
+                // Show the image row and experience details
                 clickedItem.querySelector('.image-row').style.display = 'flex';
                 clickedItem.querySelector('.experience-details').style.display = 'block';
                 
-                // Hide the original logo container
-                clickedItem.querySelector('.logo-container').style.display = 'none';
+                // Logo container styling is now handled by CSS
             } else {
-                allItems.forEach(item => {
-                    item.classList.remove('collapsed');
-                    
-                    // Hide the expanded header, image row, and experience details
-                    item.querySelector('.expanded-header').style.display = 'none';
-                    item.querySelector('.image-row').style.display = 'none';
-                    item.querySelector('.experience-details').style.display = 'none';
-                    
-                    // Show the original logo container
-                    item.querySelector('.logo-container').style.display = 'flex';
-                });
+                clickedItem.classList.remove('expanded');
+                clickedItem.classList.add('collapsed');
+                
+                // Hide the image row and experience details
+                clickedItem.querySelector('.image-row').style.display = 'none';
+                clickedItem.querySelector('.experience-details').style.display = 'none';
+                
+                // Reset logo container for collapsed state
+                clickedItem.querySelector('.logo-container').style = '';
+                clickedItem.querySelector('.logo-container img').style = '';
             }
+    
+            // Smooth scroll to the clicked item
+            setTimeout(() => {
+                clickedItem.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
         }
     </script>
+    
+    
 </body>
 </html>
