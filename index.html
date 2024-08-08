@@ -195,7 +195,34 @@
             max-width: 100%;
         }
     }
-</style>
+
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .stats-item {
+            flex: 1;
+            margin: 0 1rem;
+        }
+
+        .stats-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        @media screen and (max-width: 736px) {
+            .stats-container {
+                flex-direction: column;
+            }
+
+            .stats-item {
+                margin: 1rem 0;
+            }
+        }
+    </style>
 
 
     
@@ -361,6 +388,15 @@
                 <ul class="actions">
                     <li><a href="experience.html" class="button large">View Full Experience</a></li>
                 </ul>
+                <div class="stats-container">
+                    <div class="stats-item">
+                        <img src="https://ghchart.rshah.org/fortranibal" alt="GitHub Contributions" class="image fit">
+                    </div>
+
+                </div>
+                    <div class="stats-item">
+                        <img src="https://leetcard.jacoblin.cool/Fortranibal?theme=nord&ext=heatmap" alt="LeetCode Stats" class="image fit">
+                    </div>
             </footer>
 
         </div>
