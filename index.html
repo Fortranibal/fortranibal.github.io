@@ -126,75 +126,93 @@
         }
     
         .intro-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100vh;
-            padding: 0 0rem;
             position: relative;
+        }
+        .intro-container::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(30, 37, 45, 0), rgba(30, 37, 45, 1));
+            pointer-events: none;
         }
     
         .intro-content {
-        width: 100%;
-        height: 100%;
-        flex: 1;
-        padding-right: 2rem;
-        position: absolute;
-        top: 25%;
-        padding-left: 10%;
-    }
-
-    .intro-image {
-        flex: 1;
-        text-align: right;
-        width: 100%;
-        height: 100%;
-    }
-
-    .intro-image img {
-        max-width: 30%;
-        height: auto;
-        max-height: 80vh;
-        object-fit: cover;
-    }
-
-    .intro-text {
-        max-width: 70%;
-    }
-
-    @media screen and (max-width: 980px) {
-        .intro-container {
-            flex-direction: column;
-            height: auto;
-            padding: 2rem 0;
-        }
-
-        .intro-content {
-            position: relative;
-            top: 0;
-            padding-left: 5%;
-            padding-right: 5%;
+            width: 100%;
+            height: 100%;
+            flex: 1;
+            padding-right: 2rem;
+            position: absolute;
+            top: 25%;
+            padding-left: 10%;
         }
 
         .intro-image {
-            text-align: center;
-            margin-top: 2rem;
+            flex: 1;
+            text-align: right;
+            width: 100%;
+            height: 100%;
+        }        
+        
+        .intro-image::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
         }
 
-        .intro-image img {
-            max-width: 50%;
-        }
-    }
 
-    @media screen and (max-width: 736px) {
+
         .intro-image img {
-            max-width: 70%;
+            max-width: 30%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: cover;
+            position: relative;
         }
 
         .intro-text {
-            max-width: 100%;
+            max-width: 70%;
         }
-    }
+
+        @media screen and (max-width: 980px) {
+            .intro-container {
+                flex-direction: column;
+                height: auto;
+                padding: 2rem 0;
+            }
+
+            .intro-content {
+                position: relative;
+                top: 0;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .intro-image {
+                text-align: center;
+                margin-top: 2rem;
+            }
+
+            .intro-image img {
+                max-width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 736px) {
+            .intro-image img {
+                max-width: 70%;
+            }
+
+            .intro-text {
+                max-width: 100%;
+            }
+        }
 
         .stats-container {
             display: flex;
@@ -222,6 +240,59 @@
                 margin: 1rem 0;
             }
         }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .center-button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        #contact-button {
+            display: inline-block;
+            margin-top: 2rem;
+        }
+
+        #back-to-top {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background-color: #18bfef;
+            color: white;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        #back-to-top:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+        }
+
+        .major h1, .major h2, .intro-content {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .button {
+            background-color: #18bfef !important;
+            color: white !important;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index:2;
+        }
+        .button:hover {
+            background-color: #0056b3 !important;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+        }
+
     </style>
 
 
@@ -231,14 +302,14 @@
 <body class="is-preload">
 
     <!-- Wrapper -->
-    <div id="wrapper" class="fade-in">
+    <div id="wrapper" class="fade-in ss-container">
 
         <!-- Intro -->
         <div id="intro" class="intro-container">
-            <img class="intro-image" src="images/hero/rocket.jpg" alt="Hero Image">
+            <img class="intro-image" src="images/hero/launcher.jpg" alt="Hero Image">
 
             <div class="intro-content">
-                <h1>Anibal<br /><span style="font-weight: bold; color: #ff6600;">Guerrero Hernandez</span></h1>
+                    <h1>Anibal<br /><span style="font-weight: bold; color: #18bfef;">Guerrero Hernandez</span></h1>
                 <p>Aerospace Engineer | Innovator | Space Enthusiast</p>
                 <ul class="actions">
                     <li><a href="#nav" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
@@ -269,7 +340,7 @@
         </nav>
 
         <!-- Main -->
-        <div id="main">
+        <div id="main" class="sss">
             <!-- Featured Post -->
             <article class="post featured">
                 <header class="major">
@@ -289,7 +360,7 @@
             <!-- Posts -->
              <!-- We have full-width (horizontal-double), vertical-double, and - (normal) -->
             <div class="experience-container">
-                <div class="experience-item full-width" onclick="toggleExpand(this)">
+                <div class="experience-item full-width sss" onclick="toggleExpand(this)">
                     <div class="logo-container">
                         <img src="images/SAC24/WSPR-PPT-SAC.jpg" alt="Rocket Launch" />
                     </div>
@@ -311,7 +382,7 @@
                 </div>
             
                 <!-- TODO: Expand video vertically on the side for the rocket hopper unlike the other cards -->
-                <div class="experience-item vertical-double" onclick="toggleExpand(this)">
+                <div class="experience-item vertical-double sss" onclick="toggleExpand(this)">
                     <div class="logo-container">
                         <video autoplay loop muted playsinline>
                             <source src="videos/Rocket Hopper Demonstrator - Test Campaign Run.mp4" type="video/mp4">
@@ -335,7 +406,7 @@
                     </div>
                 </div>
             
-                <div class="experience-item" onclick="toggleExpand(this)">
+                <div class="experience-item sss" onclick="toggleExpand(this)">
                     <div class="logo-container">
                         <img src="images/DLR/4-asteroids-sample.png" alt="Asteroid Sample" />
                     </div>
@@ -357,7 +428,7 @@
                     </div>
                 </div>
             
-                <div class="experience-item" onclick="toggleExpand(this)">
+                <div class="experience-item sss" onclick="toggleExpand(this)">
                     <div class="logo-container">
                         <img src="images/AMC/SCAR-E Spec sheet V4.webp" alt="Asteroid Mining Concept" />
                     </div>
@@ -386,9 +457,10 @@
             
             <!-- Footer -->
             <footer>
-                <ul class="actions">
-                    <li><a href="experience.html" class="button large">View Full Experience</a></li>
-                </ul>
+                <div class="button-container">
+                    <a href="experience.html" class="button large">View Full Experience</a>
+                    <a href="contact.html" class="button large">Contact</a>
+                </div> 
                 <div class="stats-container">
                     <div class="stats-item">
                         <img src="https://ghchart.rshah.org/fortranibal" alt="GitHub Contributions" class="image fit">
@@ -402,7 +474,10 @@
 
         </div>
 
-        <!-- Footer -->
+        <!-- Back to Top Button -->
+        <div id="back-to-top" title="Back to Top">↑</div>
+
+        <!-- Footer
         <footer id="footer">
             <section class="split contact">
                 <section class="alt">
@@ -425,7 +500,7 @@
                     </ul>
                 </section>
             </section>
-        </footer>
+        </footer> -->
 
         <!-- Copyright -->
         <!-- <div id="copyright">
@@ -461,6 +536,22 @@
                 allItems.forEach(item => item.classList.remove('collapsed'));
             }
         }
+        
+        // Back to Top functionality
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("back-to-top").style.display = "block";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+        }
+
+        document.getElementById("back-to-top").onclick = function() {
+            document.getElementById("main").scrollIntoView({behavior: "smooth"});
+        }
+
     </script>
     
 </body>
