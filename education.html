@@ -12,7 +12,7 @@
             grid-template-columns: 1fr;
             gap: 1rem;
         }
-    
+
         .education-item {
             background: #ffffff;
             border: 1px solid #ddd;
@@ -23,13 +23,14 @@
             display: flex;
             flex-direction: row;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
-    
+
         .education-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
-    
+
         .education-item .logo-container {
             width: 200px;
             height: 200px;
@@ -37,103 +38,101 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
-    
+
         .education-item .logo-container img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             transition: all 0.3s ease;
         }
-    
+
         .education-item .education-content {
             flex-grow: 1;
             padding: 1rem;
         }
-    
+
         .education-item h3 {
             margin-bottom: 0.2rem;
         }
-    
+
         .education-item h4 {
             font-size: 1em;
             color: #666;
             margin-bottom: 0.5rem;
         }
-    
+
         .education-item .date {
             font-style: italic;
             color: #666;
             margin-bottom: 0.5rem;
         }
-    
+
         .education-item .description {
             font-size: 0.9em;
             line-height: 1.4;
         }
-    
+
         .education-item .education-details {
             display: none;
             padding-top: 1rem;
             width: 100%;
         }
-    
+
         .education-item .details-columns {
             display: flex;
             justify-content: space-between;
             gap: 2rem;
             padding: 2rem;
         }
-    
+
         .education-item .details-columns .column {
             flex: 1;
         }
-    
+
         .education-item.expanded {
             flex-direction: column;
         }
-    
+
         .education-item.expanded .logo-container {
             position: absolute;
             top: 1rem;
             right: 1rem;
-            width: 80px;
-            height: 80px;
-            border-radius: 5%;
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-    
+
         .education-item.expanded .education-content {
-            padding-right: 100px;
+            padding-right: 80px;
         }
-    
-        .education-item.expanded .education-details {
-            display: block;
-        }
-    
+
         @media screen and (max-width: 736px) {
             .education-item {
                 flex-direction: column;
             }
-    
+
             .education-item .logo-container {
                 width: 100%;
                 height: 150px;
             }
-    
+
             .education-item.expanded .logo-container {
                 position: static;
                 width: 100%;
                 height: 150px;
                 border-radius: 0;
                 margin-bottom: 1rem;
+                box-shadow: none;
             }
-    
+
             .education-item.expanded .education-content {
                 padding-right: 1rem;
             }
-    
+
             .education-item .details-columns {
                 flex-direction: column;
             }
@@ -213,7 +212,7 @@
                     
                     <div class="education-item" onclick="toggleExpand(this)">
                         <div class="logo-container">
-                            <img src="images/logos/UPM.png" alt="UPM Logo" />
+                            <img src="images/logos/ETSIAE-UPM.png" alt="UPM Logo" />
                         </div>
                         <div class="education-content">
                             <h3>B.Eng. Aerospace Engineering</h3>
@@ -258,6 +257,14 @@
         </footer>
     </div>
 
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
     <script>
         function toggleExpand(clickedItem) {
             const allItems = document.querySelectorAll('.education-item');
@@ -267,28 +274,18 @@
                 if (item !== clickedItem) {
                     item.classList.remove('expanded');
                     item.querySelector('.education-details').style.display = 'none';
+                    item.querySelector('.logo-container').style = '';
+                    item.querySelector('.education-content').style.paddingRight = '';
                 }
             });
     
             if (!wasExpanded) {
                 clickedItem.classList.add('expanded');
                 clickedItem.querySelector('.education-details').style.display = 'block';
-                
-                // Minimize logo
-                clickedItem.querySelector('.logo-container').style.position = 'absolute';
-                clickedItem.querySelector('.logo-container').style.top = '1rem';
-                clickedItem.querySelector('.logo-container').style.right = '1rem';
-                clickedItem.querySelector('.logo-container').style.width = '80px';
-                clickedItem.querySelector('.logo-container').style.height = '80px';
-                clickedItem.querySelector('.logo-container').style.borderRadius = '50%';
-                
-                clickedItem.querySelector('.education-content').style.paddingRight = '100px';
+                clickedItem.querySelector('.education-content').style.paddingRight = '80px';
             } else {
                 clickedItem.classList.remove('expanded');
                 clickedItem.querySelector('.education-details').style.display = 'none';
-                
-                // Reset logo
-                clickedItem.querySelector('.logo-container').style = '';
                 clickedItem.querySelector('.education-content').style.paddingRight = '';
             }
     
