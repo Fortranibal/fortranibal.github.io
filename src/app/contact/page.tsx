@@ -36,11 +36,15 @@ export default function ContactPage() {
         message: message,
       };
 
+      console.log('Attempting to send email...');
+
       const response = await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         templateParams
       );
+
+      console.log('Email response:', response);
 
       if (response.status === 200) {
         toast({
@@ -54,10 +58,11 @@ export default function ContactPage() {
         throw new Error('Failed to send message');
       }
     } catch (error) {
+      console.error('Error sending email:', error);
       toast({
         title: "Error",
         description: error instanceof Error 
-          ? error.message 
+          ? `Error sending message: ${error.message}`
           : "Something went wrong. Please try again later.",
         variant: 'destructive',
       });
