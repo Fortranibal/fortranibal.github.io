@@ -21,9 +21,14 @@ export default function ContactPage() {
 
   // Prevent hydration errors by only rendering on client side
   useEffect(() => {
+    // Debug the User ID
+    console.log('Public ID:', process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+
     setIsClient(true);
     // Initialize EmailJS
-    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
+    emailjs.init({
+      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+    });
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -49,7 +54,7 @@ export default function ContactPage() {
       if (response.status === 200) {
         toast({
           title: "Message Sent!",
-          description: "Thank you for reaching out. I&apos;ll get back to you as soon as possible!",
+          description: "Thank you for reaching out. I'll get back to you as soon as possible!",
         });
         setName('');
         setEmail('');
