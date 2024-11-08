@@ -7,9 +7,9 @@ import { Menu, X, Github, Linkedin, ArrowUp, Mail } from 'lucide-react'
 import dynamic from 'next/dynamic'
 
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { ProjectItem, getFeaturedProjects } from '@/data/projects'
 
 const ThemeToggle = dynamic(() => import('@/components/ThemeToggle'), { ssr: false })

@@ -45,7 +45,7 @@ export default function ContactPage() {
       if (response.status === 200) {
         toast({
           title: "Message Sent!",
-          description: "Thank you for reaching out. I'll get back to you as soon as possible!",
+          description: "Thank you for reaching out. I&apos;ll get back to you as soon as possible!",
         });
         setName('');
         setEmail('');
@@ -56,7 +56,9 @@ export default function ContactPage() {
     } catch (error) {
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again later.",
+        description: error instanceof Error 
+          ? error.message 
+          : "Something went wrong. Please try again later.",
         variant: 'destructive',
       });
     }
@@ -101,10 +103,10 @@ export default function ContactPage() {
         <div className="max-w-2xl mx-auto">
           <Card>
             <CardHeader>
-              <CardTitle className="text-3xl font-bold">Let's Connect!</CardTitle>
+              <CardTitle className="text-3xl font-bold">Let&apos;s Connect!</CardTitle>
               <CardDescription>
-                Looking for an innovative aerospace engineer to join your team? I'm ready to launch my career with you! 
-                Whether you have a job opportunity or just want to discuss potential collaborations, I'd love to hear from you.
+                Looking for an innovative aerospace engineer to join your team? I&apos;m ready to launch my career with you! 
+                Whether you have a job opportunity or just want to discuss potential collaborations, Id love to hear from you.
               </CardDescription>
             </CardHeader>
             <CardContent>
