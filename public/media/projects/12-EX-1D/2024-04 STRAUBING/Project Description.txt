@@ -1,0 +1,10 @@
+We tried again 7 months later. 
+
+On the 21st of April, we launch EX-1D, WESP’s maiden 1-stage rocket. The main objective of the launch was to demonstrate that our recovery system was able to deploy even under a speed of over 
+
+Straubing Launch – Stress test of recovery system under speeds of >200 ft/s
+
+Characteristic information of EX-1D in general:
+- Stages: 1
+- Apogee: 440ft
+- Innovation: Self-developed flight computer and maiden flight

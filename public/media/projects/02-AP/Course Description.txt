@@ -1,0 +1,20 @@
+The weekly lecture discusses selected programming topics, C++ concepts, and performance-related topics.
+
+In the weekly tutorials, tutors participating in the Supervised Teaching program first give a brief presentation on selected topics. These talks comprise outlooks and studies on topics not covered by the lecture and the exam that are however mandatory to program successfully today. Examples for topics are systematic testing and debugging, runtime measurements, build environments and so forth. Afterwards, the tutors present and discuss solutions on selected worksheet problems. The worksheets are published online roughly a week before the corresponding tutorials. This way, all participants have the opportunity to study the problems at home before they are presented solutions and additional information on the challenges. There is no mandatory homework however.
+
+Our tutors are mentored by Ph.D. candidates due to the Supervised Teaching program and constantly get didactic feedback and evaluation.
+
+The lectures are given by Tobias Neckel. The tutorials are given by BGCE students and by the Ph.D. candidates Gerasimos Chourdakis and Santiago Narváez Rivas.
+
+Prerequisites
+
+The course is called Advanced Programming. This implies that you are already familiar with a few programming concepts, but don't feel intimidated if you only have little programming experience. You are probably already in the target audience!
+
+We expect some familiarity with the following concepts, in any language:
+
+Concepts of variables and simple data types (scalars, arrays, ...)
+Concepts of loops and control flow
+Concepts of functions or subroutines
+Basic idea of objects (from object-oriented programming)
+
+Any graduate from an engineering or similar curriculum (i.e., any student of CSE, BMC, or similar programs) will be able to follow the course. In order to refresh a few concepts, we offer the short course CSE Primer, which you are welcome to join just before starting with Advanced Programming. Find more details on TUMonline.

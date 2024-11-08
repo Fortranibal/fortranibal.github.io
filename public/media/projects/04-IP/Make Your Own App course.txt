@@ -1,0 +1,41 @@
+TUMx: Make Your Own App
+Over 6 modules you will interactively learn the basics of web programming (HTML, CSS, JavaScript, jQuery, ...) and how to utilize these techniques to build your own software applications for mobile or desktop devices (exemplified with a chat app).
+
+Play Videofor Make Your Own App
+There is one session available:
+31.740 already enrolled!
+Starts Oct 29
+Enroll
+
+I would like to receive email from TUMx and learn about other offerings related to Make Your Own App.
+About this course
+7 weeks
+8–9 hours per week
+Self-paced
+Progress at your own speed
+Free
+Optional upgrade available
+Using motivational videos, introductory sections, an interactive code editor, challenges and peer review throughout this course you will develop a working chat app. While doing so you can earn credits and points, receive badges and fulfill achievements in order to be able to see and compare your progress with other students. Starting with simple HTML content and ordinary CSS rules you will gradually improve your app and add increasing interaction within every week using JavaScript and JQuery. After completing this course you’ll be able to tackle almost any idea you might have and build an app that fulfills your needs.
+
+At a glance
+Institution: TUMx
+Subject: Computer Science
+Level: Introductory
+Prerequisites:
+none
+
+Language: English
+Video Transcript: English
+Associated skills:JQuery, JavaScript (Programming Language), Web Development, Code Editor, HyperText Markup Language (HTML), Cascading Style Sheets (CSS), Motivational Skills
+What you'll learn
+HTML, CSS and JavaScript basics
+How to structure HTML code, including media elements, referencing external resources and separate CSS styles from HTML code
+How to make web apps interactive
+How to use advanced CSS properties to create captivating apps and understand and apply basic programming concepts like loops and arrays
+Advanced JavaScript concepts and a basic introduction to web-APIs, JSON and AJAXIt's official! I've just completed the online Specialization in Machine Learning by the renowned Andrew Ng from Stanford University. This program was a comprehensive study of machine learning concepts, including supervised learning techniques such as linear and logistic regression, decision trees, and neural networks, as well as unsupervised learning methods such as clustering and anomaly detection. I'm now equipped with the knowledge and practical skills to tackle real-world problems in the field of machine learning with confidence. hashtag#BreakingIntoAI has never been more achievable for me!
+
+I'm taking my learning to the next level by participating in the Machine Learning for Engineers course as part of my Technical University of Munich curriculum in M.Sc. Aerospace. In this course, I had the opportunity to apply my knowledge and develop a Convolutional Neural Network that autoregressively predicts the flow fields of a Computational Fluid Dynamics simulation. This project has been a challenging yet incredibly rewarding experience that has allowed me to see the impact my skills can have in the real world.
+
+I am proud to have completed this program and am eager to continue my AI journey. To anyone looking to hashtag#BreakIntoAI, I encourage you to embrace challenges and never stop learning. 
+
+hashtag#MachineLearning hashtag#AI hashtag#CareerDevelopment hashtag#Stanford hashtag#NeverStopLearning

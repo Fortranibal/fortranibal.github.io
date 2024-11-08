@@ -1,0 +1,14 @@
+What is WSPR?
+- WSPR is our in-house software to simulate 6 DOF trajectories for WESP. Managing over 8 active members  at any given time and an overall 14 developers, WSPR will recently be 1 year old. Our approach is to have rapid iterations of parallel developments. I hold weekly meetings were we present to each other our developments and provide feedback for improvements. 
+- Initially, we considered creating a trajectory simulator which worked exclusively for solid propellant rockets because WESP only deals with solid motors. But as the project evolved and more developers joined the team, I decided to expand the capabilities of it beyond solid motors. 
+
+Features:
+- Dynamic Mass 6DOF Trajectory simulation
+- Datcom Corrective Factors Inclusion
+- Safety range analysis
+- Automatic Report Generation
+- Web App GUI
+- Telemetry Data analysis
+- AR Scenery
+
+Over 1,200h of work I have poured onto this project

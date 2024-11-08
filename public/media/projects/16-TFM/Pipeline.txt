@@ -1,0 +1,36 @@
+Your pipeline does make sense for your final goal of 3D model reconstruction, and here’s how each step fits in:
+
+Load images, detect and match features in pairs: These steps form the foundation of building a visual representation. By detecting and matching features, you're setting up key points for pose estimation, which are crucial for establishing relative spatial relationships between images.
+
+Calculate relative poses: This step aligns each pair of matched images in a common coordinate frame. Since you're reconstructing a 3D model, relative poses are generally sufficient for initial alignment across frames, particularly in asteroid navigation where absolute scale might be less relevant at this stage.
+
+Predict depth maps: Here, you'll use the camera intrinsics and relative poses to generate dense depth maps, enriching your model with additional spatial data beyond sparse feature points. This is a preparatory step for your final goal, the dense 3D reconstruction.
+
+3D model reconstruction (dense SfM): Using the relative poses and depth maps, you can construct a detailed, dense 3D model.
+
+
+To proceed with this, you’ll need to set up the pipeline in your PCVP module to handle each step, focusing on getting accurate relative poses, generating dense depth maps, and assembling the final 3D model from these data points. Here's a breakdown of what you can implement in the pose estimator module:
+
+1. Calculate Relative Poses
+Purpose: Align each image pair in a shared coordinate frame to maintain the asteroid’s 3D geometry accurately.
+Implementation:
+Use the matched keypoints and descriptors from feature matching.
+Apply Essential Matrix (E) and Fundamental Matrix (F) estimation between pairs using cv2.findEssentialMat and cv2.recoverPose to get the relative rotation (R) and translation (T) between frames.
+Store these R and T values in a sequence, effectively creating a transformation chain across all images.
+2. Predict Dense Depth Maps
+Purpose: Enhance the spatial data to form a dense point cloud by enriching each frame with a depth estimate.
+Implementation:
+Use the camera intrinsics (K) alongside R and T from the relative pose estimation.
+Implement multi-view stereo (MVS) techniques or a depth prediction network to estimate per-pixel depth for each image, given the pose information.
+OpenCV offers tools to create depth maps, but for increased accuracy, a deep learning-based approach such as COLMAP’s dense reconstruction or MiDaS can predict more refined depth maps using relative poses.
+This depth data adds significant detail to the point cloud, especially when combined with the sparse keypoints.
+3. Dense 3D Model Reconstruction (SfM)
+Purpose: Use the relative poses and depth maps to generate a cohesive 3D model.
+Implementation:
+Combine the poses and dense depth data to triangulate points across frames.
+An approach like Structure from Motion (SfM) will reconstruct a model based on matched keypoints and relative poses. To obtain a denser model, consider using an MVS pipeline that integrates depth information into the model.
+Use point cloud densification techniques to refine and filter the model for further detail.
+Evaluation and Testing
+Since you’re working without absolute positioning, test accuracy by measuring the consistency of the relative positions and examining if the model holds a stable shape across frames.
+You can add absolute scaling and distances in the future for navigation and landing maneuvers by measuring against known asteroid features or setting an initial scale in your reconstruction framework if such data becomes available.
+Implementing these steps in your pose estimator module should bring you closer to a viable, dense asteroid model suitable for close-proximity navigation and eventual landing planning.

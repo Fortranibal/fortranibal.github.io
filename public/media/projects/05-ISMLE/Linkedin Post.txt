@@ -1,0 +1,7 @@
+It's official! I've just completed the online Specialization in Machine Learning by the renowned Andrew Ng from Stanford University. This program was a comprehensive study of machine learning concepts, including supervised learning techniques such as linear and logistic regression, decision trees, and neural networks, as well as unsupervised learning methods such as clustering and anomaly detection. I'm now equipped with the knowledge and practical skills to tackle real-world problems in the field of machine learning with confidence. hashtag#BreakingIntoAI has never been more achievable for me!
+
+I'm taking my learning to the next level by participating in the Machine Learning for Engineers course as part of my Technical University of Munich curriculum in M.Sc. Aerospace. In this course, I had the opportunity to apply my knowledge and develop a Convolutional Neural Network that autoregressively predicts the flow fields of a Computational Fluid Dynamics simulation. This project has been a challenging yet incredibly rewarding experience that has allowed me to see the impact my skills can have in the real world.
+
+I am proud to have completed this program and am eager to continue my AI journey. To anyone looking to hashtag#BreakIntoAI, I encourage you to embrace challenges and never stop learning. 
+
+hashtag#MachineLearning hashtag#AI hashtag#CareerDevelopment hashtag#Stanford hashtag#NeverStopLearning

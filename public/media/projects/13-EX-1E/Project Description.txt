@@ -1,0 +1,8 @@
+We proudly launched, and fully recovered this vehicle at SAC 2024 (Spaceport America Cup) in the desert of New Mexico.
+
+Since our main target is to educate our members within all subjects of rocketry, we are designing, developing and manufacturing everything from carbon fiber structures, our weight optimized CNC parts and our flight computer in house.
+
+Characteristic information of EX-1D in general:
+- Stages: 2
+- Apogee: 27,297ft
+- Innovation: SRAD wound carbon fiber airframe, Live telemetry, 2.4GHz LoRa, AM Titanium Motor Mount, WSPR

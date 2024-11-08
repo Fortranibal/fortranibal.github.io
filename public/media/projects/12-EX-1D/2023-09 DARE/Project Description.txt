@@ -1,0 +1,9 @@
+As part of WESP's first iteration, we developed a one stage solid propellant rocket that would launch with DARE, TU Delft's friend rocketry group in a military base in t`Harde, ASk, near Delft.
+
+This project was founded in May 2023, developing an initial rocket of approximately 20kg and 2 meters in length. Due to apogee limitations, the launch could only have a maximum apogee of 1500m. Unfortunately, due to a COTS engine manufacturing issue, the propellant couldnt fit in the casing designed for that engine.
+
+However, we would reuse the same components for the next launches and EX-1E.
+
+Characteristic information of EX-1D in general:
+- Stages: 1
+- Innovation: Self-developed flight computer and maiden flight
