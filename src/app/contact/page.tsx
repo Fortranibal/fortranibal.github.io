@@ -26,9 +26,7 @@ export default function ContactPage() {
 
     setIsClient(true);
     // Initialize EmailJS
-    emailjs.init({
-      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
-    });
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
