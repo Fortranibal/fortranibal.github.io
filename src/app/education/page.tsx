@@ -3,11 +3,9 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, Github, Linkedin, ChevronDown, ChevronUp, GraduationCap, Book, Trophy, Rocket, Calendar, MapPin } from 'lucide-react'
+import { ArrowLeft, Github, Linkedin, GraduationCap, Calendar, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 interface EducationItem {
@@ -267,7 +265,7 @@ export default function EducationPage() {
           </h2>
           <p className="text-muted-foreground">
             While my formal university education has been completed, my journey of learning and growth continues. 
-            I'm constantly pursuing new knowledge and skills in the rapidly evolving fields of aerospace engineering 
+            Constantly pursuing new knowledge and skills in the rapidly evolving fields of aerospace engineering 
             and computer science. Through ongoing courses, projects, and industry engagement, I remain at the forefront 
             of technological advancements in my field. My awards and honors page showcases my commitment to excellence 
             and continuous improvement beyond traditional academic settings.

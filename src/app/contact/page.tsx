@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, Github, Linkedin, Send } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -152,7 +151,7 @@ export default function ContactPage() {
               </form>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <p className="text-sm text-muted-foreground">I'll respond to all inquiries within 24-48 hours.</p>
+              <p className="text-sm text-muted-foreground">I will respond to all inquiries within 24-48 hours.</p>
             </CardFooter>
           </Card>
         </div>
