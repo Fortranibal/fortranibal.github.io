@@ -9,7 +9,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  // basePath: '/fortranibal.github.io',
+  basePath: '/fortranibal.github.io',
   images: {
     unoptimized: true,
   },
