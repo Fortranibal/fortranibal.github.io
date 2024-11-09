@@ -20,19 +20,20 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  // EmailJS keys (not sensitive)
+  const publicKey = 'IdcCHP7UMbLzJFl5s';
+  const serviceId = 'service_bvnkjv7';
+  const templateId = 'template_xosm7pa';
+
   useEffect(() => {
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    // Log keys to ensure they are read correctly
+    console.log('Debugging EmailJS Keys:');
+    console.log('Public Key:', publicKey);
+    console.log('Service ID:', serviceId);
+    console.log('Template ID:', templateId);
 
-    // Debug environment variables (remove in production)
-    console.log('Environment Variables Check:');
-    console.log('Public Key exists:', !!publicKey);
-    console.log('Service ID exists:', !!serviceId);
-    console.log('Template ID exists:', !!templateId);
-
-    if (!publicKey) {
-      console.error('EmailJS Public Key is missing');
+    if (!publicKey || !serviceId || !templateId) {
+      console.error('EmailJS configuration is incomplete');
       toast({
         title: "Configuration Error",
         description: "Email service is not properly configured. Please check the setup.",
@@ -52,14 +53,15 @@ export default function ContactPage() {
         variant: 'destructive',
       });
     }
-  }, [toast]);
+  }, [publicKey, serviceId, templateId, toast]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+
+    // Hardcoded values instead of environment variables
+    const serviceId = 'service_bvnkjv7'; // hardcoded
+    const templateId = 'template_xosm7pa'; // hardcoded
 
     if (!serviceId || !templateId) {
       toast({
