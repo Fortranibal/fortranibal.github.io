@@ -42,11 +42,11 @@ export interface ProjectMedia {
         additionalMedia: [
             // TODO: Add view videos and also make image fit so it doesnt get cut
             {
-                type: 'video',
-                src: '/media/projects/13-EX-1E/EX-1E Launch SAC24.mp4',
+                type: 'image',
+                src:  '/media/projects/13-EX-1E/EX-1E ESRA Livestream.png',
                 alt: 'EX-1E Ignition at Spaceport America Cup 2024',
                 description: 'Dramatic capture of EX-1E\'s launch sequence at SAC 2024, showcasing stage separation',
-                aspectRatio: '16:9'
+                aspectRatio: '1:1',
             },
             {
                 type: 'image',
@@ -95,9 +95,9 @@ export interface ProjectMedia {
         description: 'Developed and implemented an advanced reinforcement learning control system for a cold gas-powered vertical takeoff and landing demonstrator.',
         longDescription: 'This project, conducted at TUM\'s Chair of Space Mobility and Propulsion, focused on creating a comprehensive digital twin simulation and implementing TD3 (Twin Delayed Deep Deterministic Policy Gradient) algorithms for precise altitude control of a single-degree-of-freedom rocket platform. The project demonstrated successful integration of advanced control theory with practical aerospace engineering, validating reinforcement learning approaches for rocket control applications.',
         media: {
-            type: 'video',
-            src:  '/media/projects/01-RH/Rocket Hopper Demonstrator - Test Campaign Run.mp4',
-            aspectRatio: '9:16',
+            type: 'image',
+            src: '/media/projects/01-RH/RH - RL Simulations.jpg',
+            aspectRatio: '16:9'
             },
         category: ['computer-science', 'aerospace'],
         technologies: ['Reinforcement Learning', 'Control Systems', 'Python', 'EcoSim Pro', 'Teensy'],
@@ -109,13 +109,13 @@ export interface ProjectMedia {
                 description: '3D model of the Rocket Hopper Demonstrator used for the test flights',
                 aspectRatio: '1:1'
             },
-            {
-                type: 'video',
-                src: '/media/projects/01-RH/Rocket Hopper Demonstrator - Test Campaign Run.mp4',
-                alt: 'Flight Test of the Rocket Hopper during test campaign',
-                description: 'One of the 10+ physical flight tests during the test campaign',
-                aspectRatio: '16:9'
-            },
+            // {
+            //     type: 'video',
+            //     src: '/media/projects/01-RH/Rocket Hopper Demonstrator - Test Campaign Run.mp4',
+            //     alt: 'Flight Test of the Rocket Hopper during test campaign',
+            //     description: 'One of the 10+ physical flight tests during the test campaign',
+            //     aspectRatio: '16:9'
+            // },
             {
                 type: 'image',
                 src: '/media/projects/01-RH/RH - RL Simulations.jpg',
@@ -176,13 +176,13 @@ export interface ProjectMedia {
                 description: 'Monte Carlo simulation results showing landing probability distributions and safety zones for Straubing launch site, compared to OpenRocket predictions and real launch data',
                 aspectRatio: '1:1'
             },
-            {
-                type: 'video',
-                src: '/media/projects/18-WSPR/[Feat] GUI 3.0.mp4',
-                alt: 'WSPR graphical user interface (GUI)',
-                description: 'Web-based interface showcasing the user-friendly design of WSPR, after 3 UIUX iterations',
-                aspectRatio: '16:9'
-            },
+            // {
+            //     type: 'video',
+            //     src: '/media/projects/18-WSPR/[Feat] GUI 3.0.mp4',
+            //     alt: 'WSPR graphical user interface (GUI)',
+            //     description: 'Web-based interface showcasing the user-friendly design of WSPR, after 3 UIUX iterations',
+            //     aspectRatio: '16:9'
+            // },
             {
                 type: 'image',
                 src: '/media/projects/18-WSPR/[Feat] Report Automation.png',
@@ -230,8 +230,8 @@ export interface ProjectMedia {
                 aspectRatio: '16:9'
             },
             {
-                type: 'video',
-                src: '/media/projects/12-EX-1D/2024-04 STRAUBING/Launch Video.mp4',
+                type: 'image',
+                src: '/media/projects/12-EX-1D/2024-04 STRAUBING/EX-1D Launch Straubing.png',
                 alt: 'EX-1D sideways recovery system stress test, April 2024',
                 description: 'After the development of the sideways recovery system, we took the launch opportunity at Straubing to stress test the system in order to verify it could withstand supersonic-induced drag forces. The system performed nominally under straining circumstance, enduring 14Gs',
                 aspectRatio: '16:9'
@@ -325,7 +325,7 @@ export interface ProjectMedia {
                 type: 'image',
                 src: '/media/projects/11-Semesterarbeit/Aeroconf 2025.png',
                 alt: 'Co-authored Aeroconf 2025 paper',
-                description: 'With the work I produced for the trajectory and synthetic data generation, I co-authored a paper submitted to Aeroconf 2025 IEEE Aerospace Conference',
+                description: 'Co-authored a paper for the IEEE Aerospace Conference 2025, focusing on landing trajectory simulations on asteroids - "Bridging the Data Gap of Asteroid Exploration: OAISYS Extension for Synthetic Asteroids Creation" (Paper No. 2696, 10.0815)',
                 aspectRatio: '1:1'
             },
             {
@@ -339,7 +339,7 @@ export interface ProjectMedia {
                 type: 'image',
                 src: '/media/projects/11-Semesterarbeit/Trajectory Generation OAISYS.png',
                 alt: 'Trajectory Generation',
-                description: 'Side-by-side comparison of the three trajectory simulations implemented in the enhanced OAISYS for asteroids (direct, retrograde, and polar). Trajectory calculations use the model\'s size and orbital characteristics to calcuate moments of inertia and principal axes',
+                description: 'Sample trajectory simulation implemented in the enhanced OAISYS for asteroids (direct, retrograde, and polar). Trajectory calculations use the model\'s size and orbital characteristics to calcuate moments of inertia and principal axes',
                 aspectRatio: '1:1'                                                                                                                                                                                                                 
             }
         ],
@@ -504,15 +504,15 @@ export interface ProjectMedia {
                 aspectRatio: '16:9'
             },
             {
-                type: 'video',
-                src: '/media/projects/07-SDF/Orbital Selection - GMAT.mp4',
+                type: 'image',
+                src: '/media/projects/07-SDF/Orbital Selection - GMAT.png',
                 alt: 'Orbit Analysis',
                 description: 'GMAT representation of ground track and coverage analysis showing observation patterns',
                 aspectRatio: '16:9'
             },
             {
-                type: 'video',
-                src: '/media/projects/07-SDF/Orbital Selection 2 - GMAT.mp4',
+                type: 'image',
+                src: '/media/projects/07-SDF/Orbital Selection 2 - GMAT.png',
                 alt: 'Orbit Analysis',
                 description: 'GMAT representation of ground track and coverage analysis showing observation patterns',
                 aspectRatio: '16:9'
@@ -599,8 +599,8 @@ export interface ProjectMedia {
                 aspectRatio: '16:9'
             },
             {
-                type: 'video',
-                src: '/media/projects/14-AMC/Asteroid Belt.mp4',
+                type: 'image',
+                src: '/media/projects/14-AMC/Asteroid Belt.png',
                 alt: 'Asteroid Belt - Endless Possibilities',
                 description: 'The Solar System\'s asteroid belt, showing the potential of asteroid mining for resource extraction in space',
                 aspectRatio: '16:9'

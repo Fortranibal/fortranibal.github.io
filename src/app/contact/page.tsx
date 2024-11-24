@@ -27,10 +27,10 @@ export default function ContactPage() {
 
   useEffect(() => {
     // Log keys to ensure they are read correctly
-    console.log('Debugging EmailJS Keys:');
-    console.log('Public Key:', publicKey);
-    console.log('Service ID:', serviceId);
-    console.log('Template ID:', templateId);
+    // console.log('Debugging EmailJS Keys:');
+    // console.log('Public Key:', publicKey);
+    // console.log('Service ID:', serviceId);
+    // console.log('Template ID:', templateId);
 
     if (!publicKey || !serviceId || !templateId) {
       console.error('EmailJS configuration is incomplete');

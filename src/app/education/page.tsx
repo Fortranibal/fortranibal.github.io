@@ -16,7 +16,7 @@ interface EducationItem {
   field: string
   date: string
   location: string
-  gpa: string
+  // gpa: string
   description: string
   courses: string[]
   projects: Array<{
@@ -40,7 +40,7 @@ const educationData: EducationItem[] = [
     field: 'Space Engineering and Computer Science',
     date: 'Oct 2022 - Present',
     location: 'Munich, Germany',
-    gpa: '3.3',
+    // gpa: '3.3',
     description: 'Pursuing advanced studies in aerospace engineering with a focus on space systems and computer science applications in the field.',
     courses: [
         'Control and Simulation of Rocket Hopper Demonstrator (Grade: 1.0)',
@@ -96,7 +96,7 @@ const educationData: EducationItem[] = [
     field: 'Aerospace Science and Technologies',
     date: 'Sep 2017 - Sep 2022',
     location: 'Madrid, Spain',
-    gpa: '3.1',
+    // gpa: '3.1',
     description: 'Completed a comprehensive program in aerospace engineering, covering both aeronautical and astronautical aspects of the field.',
     courses: [
       'Aerodynamics and Flight Mechanics',
@@ -207,7 +207,7 @@ export default function EducationPage() {
                   <MapPin className="h-4 w-4 text-muted-foreground" />
                   <p className="text-sm">{edu.location}</p>
                 </div>
-                <p className="text-sm mt-1">GPA: {edu.gpa}</p>
+                {/* <p className="text-sm mt-1">GPA: {edu.gpa}</p> */}
                 <p className="mt-2">{edu.description}</p>
               </CardContent>
               {expandedItem === edu.id && (
