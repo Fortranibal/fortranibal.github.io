@@ -128,7 +128,7 @@ export default function Home() {
                     ${project.media.aspectRatio === '9:16' ? 'h-auto flex justify-center' : 'h-48'}`}>
                     {project.media.type === 'video' ? (
                       <video 
-                        src={project.media.src}
+                        key={project.media.src}
                         autoPlay
                         loop
                         muted
@@ -137,6 +137,7 @@ export default function Home() {
                           ${project.media.aspectRatio === '9:16' ? 'h-full w-auto' : 'w-full h-full object-cover'}
                         `}
                       >
+                        <source src={project.media.src} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                     ) : (
@@ -176,13 +177,11 @@ export default function Home() {
                 <div className="mb-4">
                   {selectedProject.media.type === 'video' ? (
                     <video 
-                      src={selectedProject.media.src}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
+                      key={selectedProject.media.src}
+                      controls
                       className="w-full rounded-lg"
                     >
+                      <source src={selectedProject.media.src} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   ) : (
@@ -215,13 +214,11 @@ export default function Home() {
                     <div key={index} className="space-y-2">
                       {media.type === 'video' ? (
                         <video
-                          src={media.src}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
+                          key={media.src}
+                          controls
                           className="w-full rounded-lg"
                         >
+                          <source src={media.src} type="video/mp4" />
                           Your browser does not support the video tag.
                         </video>
                       ) : (

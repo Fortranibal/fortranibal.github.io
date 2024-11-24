@@ -125,9 +125,26 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header remains the same */}
-      <header>
-        {/* ... existing header code ... */}
+      <header className="py-4 px-6 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <nav className="container mx-auto flex justify-between items-center">
+          <Link href="/" className="text-lg font-semibold">Anibal Guerrero Hernandez</Link>
+          <ul className="hidden md:flex space-x-4">
+            <li><Link href="/" className="hover:text-primary">Home</Link></li>
+            <li><Link href="/experience" className="hover:text-primary">Experience</Link></li>
+            <li><Link href="/education" className="hover:text-primary">Education</Link></li>
+            <li><Link href="/projects" className="hover:text-primary">Projects</Link></li>
+            <li><Link href="/awards" className="hover:text-primary">Awards</Link></li>
+            <li><Link href="/contact" className="text-primary">Contact</Link></li>
+          </ul>
+          <div className="flex space-x-4">
+            <Link href="https://github.com/Fortranibal" aria-label="GitHub">
+              <Github className="w-6 h-6" />
+            </Link>
+            <Link href="https://linkedin.com/in/anibal-guerrero" aria-label="LinkedIn">
+              <Linkedin className="w-6 h-6" />
+            </Link>
+          </div>
+        </nav>
       </header>
 
       <main className="container mx-auto px-4 py-8">
