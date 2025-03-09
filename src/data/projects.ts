@@ -86,7 +86,7 @@ export interface ProjectMedia {
             'Designed a sideways recovery system for the EX-1E\'s lower stage'
         ],
         featured: true,
-        isWide: true
+        isWide: false
     },
 
     {
@@ -139,7 +139,7 @@ export interface ProjectMedia {
             'Achieved controlled flight with precision altitude management within 5m operational range'
         ],
         featured: true,
-        isVertical: true
+        isVertical: false
     },
 
     {
