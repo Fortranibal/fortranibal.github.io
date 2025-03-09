@@ -21,7 +21,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Anibal Guerrero Hernandez Portfolio',
-  description: 'Portfolio of Anibal Guerrero Hernandez, Aerospace Engineer and Innovator',
+  description: 'Portfolio of Anibal Guerrero Hernandez, Aerospace Engineer, Entrepeneur, and Innovator',
 }
 
 export default function RootLayout({
