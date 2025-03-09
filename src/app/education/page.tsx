@@ -306,7 +306,7 @@ export default function EducationPage() {
 
       <footer className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-6">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <p>&copy; 2024 Anibal Guerrero Hernandez</p>
+          <p>&copy; 2025 Anibal Guerrero Hernandez</p>
           <div className="flex space-x-4">
             <Link href="https://github.com/Fortranibal" aria-label="GitHub">
               <Github className="w-6 h-6" />

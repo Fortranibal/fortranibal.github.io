@@ -32,39 +32,45 @@ const experienceData: ExperienceItem[] = [
   {
     id: 'dlr-researcher',
     company: 'German Aerospace Center (DLR)',
-    logo: '/media/experiences/DLR/DLR.png', // Make sure to add this logo
-    position: 'Researcher (Master Thesis)',
-    date: 'Jan 2024 - Present',
+    logo: '/media/experiences/DLR/DLR-white.png', // Make sure to add this logo
+    position: 'Student Researcher',
+    date: 'Jan 2024 - Dec 2024',
     location: 'Munich, Germany',
-    description: 'Enhancing the Outdoor Artificial Intelligence SYstems Simulator (OAISYS) for asteroid exploration and computer vision applications.',
+    description: 'Developing a robust computer vision pipeline for 3D model asteroid reconstruction using classic and learning-based approaches.',
     responsibilities: [
-      'Enhanced OAISYS to generate synthetic asteroid image datasets with RGB-D, Mask, and 6D Pose data',
-      'Developed advanced trajectory simulations for direct, retrograde, and polar orbits',
-      'Engineered pipeline for creating diverse asteroid shape models',
-      'Developing ML models for asteroid image analysis using computer vision techniques',
-      'Contributing to research paper for 2025 AERO Conference'
+      'Developed a robust computer vision pipeline for autonomous asteroid navigation, comparing classical and machine learning (ML) based feature extraction methods, implementing a 3D model reconstruction system for asteroid surface mapping.',
+      "Enhanced DLR’s OAISYS simulator to generate over 30,000 images as part of trajectory sequences, including RGB-D data and 6D poses, ensuring physically accurate and high-fidelity mission simulations for asteroid exploration and validation.",
+      'Co-authored Track Best Paper Award for the IEEE Aerospace Conference 2025, focusing on landing trajectory simulations on asteroids.'
     ],
     projects: [
       {
-        name: 'OAISYS Enhancement',
-        description: 'Developed comprehensive synthetic asteroid image dataset generation system, achieving grade 1.3',
+        name: 'Bridging the Data Gap of Asteroid Exploration: OAISYS Extension for Synthetic Asteroids Creation',
+        description: 'Track Best Paper Award at IEEE Aerospace Conference 2025 (Paper No. 2696, 10.0815) - Procedural generation of highly realistic crater surfaces on any mesh you load into OAISYS, with instance-level crater annotations',
+        link: '/projects#landing-trajectory-sim'
+      },
+      {
+        name: 'A Comparative Study of Classical and Learning-Based Methods for Vision Aided Close-Proximity Asteroid Exploration',
+        description: 'Developed a robust computer vision pipeline for autonomous asteroid navigation, comparing classical and machine learning (ML) based feature extraction methods, implementing a 3D model reconstruction system for asteroid surface mapping.',
         link: '/projects#oaisys'
       },
-      // Add Asteroid landing trajectory simulation for Aeroconf 2025 IEEE paper
       {
-        name: 'Asteroid Landing Trajectory Simulation',
-        description: 'Implemented physically valid rotational movements and realistic approach trajectories for landing scenarios for Aeroconf 2025 IEEE paper',
-        link: '/projects#landing-trajectory-sim'
+        name: 'Exploring Asteroids: A Survey',
+        description: "Internally published dissertation paper for DLR - Enhanced DLR’s OAISYS simulator to generate over 30,000 images as part of trajectory sequences, including RGB-D data and 6D poses, ensuring physically accurate and high-fidelity mission simulations for asteroid exploration and validation.",
+        link: '/projects#oaisys'
       }
     ],
     achievements: [
       {
-        name: 'Academic Excellence',
+        name: 'Academic Excellence for Master Thesis',
+        description: 'Achieved grade 1.3 (High Distinction) for Master Thesis research project'
+      },
+      {
+        name: 'Academic Excellence for Semesterarbeit',
         description: 'Achieved grade 1.3 (High Distinction) for Semesterarbeit research project'
       },
       {
-        name: 'Research Publication',
-        description: 'Potential co-author for 2025 AERO Conference paper'
+        name: 'Research Publications',
+        description: 'Track Best Paper Award at IEEE Aerospace Conference 2025 (Paper No. 2696, 10.0815). Additionally, published both dissertations internally at DLR.'
       }
     ]
   },
@@ -75,7 +81,7 @@ const experienceData: ExperienceItem[] = [
     position: 'Project WESP Co-Lead',
     date: 'Mar 2024 - Jul 2024',
     location: 'Munich, Germany',
-    description: 'Led the first staged rocket project in WARR\'s history and European student rocketry.',
+    description: "Led Europe's and WARR's first student-developed staged rocket in history.",
     responsibilities: [
       'Co-led EX-1E project development and launch campaign',
       'Managed team of 40+ members and 25,000+ engineering hours',
@@ -85,7 +91,7 @@ const experienceData: ExperienceItem[] = [
     projects: [
       {
         name: 'EX-1E Staged Rocket',
-        description: 'Achieved 7.8km launch at Spaceport America Cup 2024, securing 3rd place in category',
+        description: 'Achieved 7.8km launch at Spaceport America Cup 2024, securing 3rd place in "30k ft COTS" category',
         link: '/projects#ex1e'
       },
       {
@@ -109,7 +115,7 @@ const experienceData: ExperienceItem[] = [
     id: 'warr-simulation',
     company: 'WARR Rocketry',
     logo: '/media/projects/12-EX-1D/2023-09 DARE/WESP Logo.png',
-    position: 'Simulation Team Lead',
+    position: 'Simulations Team Lead',
     date: 'May 2023 - Jul 2024',
     location: 'Munich, Germany',
     description: 'Developed and led the WSPR (WESP Simulation Predictive Rocketry Tool) project.',
@@ -300,7 +306,7 @@ export default function ExperiencePage() {
 
       <footer className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-6">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <p>&copy; 2024 Anibal Guerrero Hernandez</p>
+          <p>&copy; 2025 Anibal Guerrero Hernandez</p>
           <div className="flex space-x-4">
             <Link href="https://github.com/Fortranibal" aria-label="GitHub">
               <Github className="w-6 h-6" />
