@@ -29,7 +29,7 @@ export interface ProjectMedia {
   export const projects: ProjectItem[] = [
     {
         id: 'ex-1e-rocket',
-        title: 'EX-1E Two-Stage Rocket Launch at SAC24',
+        title: 'EX-1E: Two-Stage Rocket Launch at SAC24',
         description: 'Co-led the development of EX-1E, a groundbreaking two-stage rocket that achieved historic success at the 2024 Spaceport America Cup.',
         longDescription: 'As part of WARR Rocketry\'s Project WESP, this project involved the development of EX-1E, a two-stage rocket that secured 3rd place in the highly competitive 30,000 ft COTS All propulsion types category at the 2024 Spaceport America Cup. The project marked a significant milestone as Europe\'s first student-developed staged rocket.',
         media: {
@@ -204,7 +204,7 @@ export interface ProjectMedia {
     },
     {
         id: 'ex-1d',
-        title: 'EX-1D. One-Stage Rocket Launch at Straubing',
+        title: 'EX-1D: One-Stage Rocket Launch at Straubing',
         description: 'WESP\'s inaugural single-stage, solid propellant rocket development project.',
         longDescription: 'EX-1D represented WESP\'s inaugural rocket development project. As a founding project initiated in May 2023, the project focused on developing a single-stage solid propellant rocket.',
         media: {
@@ -255,7 +255,7 @@ export interface ProjectMedia {
 
     {
         id: 'asteroid-pose-estimation',
-        title: 'Robust Pose Estimation for Asteroids (Master Thesis)',
+        title: 'Robust 3D Asteroid Reconstruction from Monocular Sequences (Master Thesis)',
         description: 'Developed a sophisticated Computer Vision pipeline for asteroid navigation and 3D model reconstruction of asteroids.',
         longDescription: 'This master\'s thesis project developed at DLR focused on creating a comprehensive Structure from Motion (SfM) system for autonomous asteroid navigation. The project implemented a robust feature detection and matching system, developed relative pose estimation algorithms, and created a dense depth map prediction system using structure from motion (SfM). The system was designed to work with uncertain scales and lighting conditions typical in asteroid environments.',
         media: {
@@ -303,7 +303,7 @@ export interface ProjectMedia {
 
     {
         id: 'semesterarbeit',
-        title: 'Synthetic Asteroid Dataset Generation',
+        title: 'Synthetic Asteroid Dataset Generation (Semesterarbeit)',
         description: 'Developed data generation pipeline for asteroid exploration enhancing OAISYS.',
         longDescription: 'Developed an Enhanced Synthetic Data Generation Pipeline for Asteroid Exploration using DLR\'s OAISYS simulator. This research project addressed critical challenges in machine learning applications for asteroid exploration by creating comprehensive synthetic datasets.',
         media: {
