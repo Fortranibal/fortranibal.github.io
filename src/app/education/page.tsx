@@ -38,17 +38,18 @@ const educationData: EducationItem[] = [
     logo: '/media/education/TUM/TUM.png',
     degree: 'M.Sc. Aerospace',
     field: 'Space Engineering and Computer Science',
-    date: 'Oct 2022 - Present',
+    date: 'Oct 2022 - Feb 2025',
     location: 'Munich, Germany',
     // gpa: '3.3',
-    description: 'Pursuing advanced studies in aerospace engineering with a focus on space systems and computer science applications in the field.',
+    description: 'Completed advanced studies in aerospace engineering with a focus on space systems and computer science applications in the field.',
     courses: [
         'Control and Simulation of Rocket Hopper Demonstrator (Grade: 1.0)',
         'Hands-on Deep Learning (Grade: 1.0)',
         'Space Mission Design (Grade: 1.0)',
+        'A Comparative Study of Classical and Learning-Based Methods for Vision-Aided Close-Proximity Asteroid Exploration - Master Thesis @ DLR (Grade: 1.3)',
+        'Asteroid Exploration: A Survey - Semesterarbeit @ DLR (Grade: 1.3)',
         'Spacecraft Design - Fundamentals (Grade: 1.3)',
         'Rocket Propulsion 2 and Design Challenge (Grade: 1.3)',
-        'Literature Research and Implementation of a Relative Position-Estimating for Landing Planning on an Asteroid (Grade: 1.3)',
         'Orbit and Flight Mechanics (Grade: 1.7)',
         'Spacecraft Propulsion and Design Challenge (Grade: 2.0)',
         'Aeroelasticity (Grade: 2.0)',
@@ -65,15 +66,45 @@ const educationData: EducationItem[] = [
     ],
     projects: [
       {
-        name: 'AI-driven Asteroid Navigation',
-        description: 'Developing AI-driven navigation systems for asteroid exploration missions',
-        link: '/projects#asteroid-navigation'
+        name: 'Development and Control of a Rocket Hopper Demonstrator',
+        description: "Developed TD3-based reinforcement learning (RL) algorithm for precise altitude control, achieving 120% performance of PID controller through 10+ physical test launches. Created comprehensive simulation validated against ESA’s EcosimPro tool.",
+        link: '/projects#rocket-hopper' 
       },
       {
-        name: 'Interplanetary Trajectory Optimization',
-        description: 'Optimizing trajectory planning for interplanetary missions',
-        link: '/projects#trajectory-optimization'
-      }
+        name: 'Ocean Plastic Detection Satellite',
+        description: 'Led mission design, focusing on ADCS and power systems for an Earth observation satellite in -30°C to +60°C range. Built 18 MATLAB modules (4,000+ lines of code) in Simulink to model subsystems and size ADCS. Validated satellite trajectory using GMAT, achieving Sun-synchronous orbit with thermal control system.',
+        link: '/projects#trajectory-optimization' 
+      },
+      {
+        name: 'Spacecraft Operations for Lunar Mining',
+        description: 'Engineered 4-day ballistic lunar transfer trajectory attaining 0.05-degree pointing accuracy using Python and STK for precise orbital mechanics simulation.',
+        link: '/projects#trajectory-optimization' 
+      },
+      {
+        name: 'Comet Explorers Mission',
+        description: 'Led trajectory design for MBC 324P/La Sagra comet mining mission using SpaceX Starship platform with GMAT. Developed custom numerical porkchop plot algorithm and analyzed RASSOR mining technology implementation with MATLAB.',
+        link: '/projects#trajectory-optimization' 
+      },
+      {
+        name: 'Advanced Bi-Propellant Rocket Propulsion System',
+        description: 'LDesigned 100-bar chamber pressure LOX/LCH4 propulsion system with 93% efficient dual-turbine arrangement for 5,000kg LEO payload capacity. Implemented regenerative cooling and MATLAB-optimized bell nozzle design..',
+        link: '/projects#trajectory-optimization' 
+      },
+      {
+        name: 'Phobos Explorer Propulsion System',
+        description: 'Engineered bi-propellant architecture achieving 3.25 km/s ∆V budget for 2-year Phobos mission. Designed complete P&ID system with hydrazine/MON-3 propellants and multiple mission-critical burns with GMAT and MATLAB.',
+        link: '/projects#trajectory-optimization' 
+      },
+      {
+        name: 'Financial Market Simulator',
+        description: 'Built C++ application simulating S&P500 market dynamics using Geometric Brownian Motion. Implemented real-time price adjustments and multiple investment timeline simulations with customizable risk profiles and strategies.',
+        link: '/projects#trajectory-optimization' 
+      },
+      {
+        name: 'CFD Flow Field Prediction using CNNs',
+        description: 'EImplemented autoregressive CNN architecture for fluid dynamics prediction with Bayesian uncertainty quantification. Combined classical ML and deep learning (DL) approaches for significant performance optimization using Pytorch and Python.',
+        link: '/projects#trajectory-optimization' 
+      },
     ],
     awards: [
       {
