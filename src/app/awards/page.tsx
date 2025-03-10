@@ -19,6 +19,50 @@ interface AwardItem {
 
 const awards: AwardItem[] = [
   {
+    id: 'paper-dlr-publication',
+    title: 'Track Best Paper Award at the IEEE Aerospace Conference',
+    category: 'award',
+    description: 'Bridging the Data Gap of Asteroid Exploration: OAISYS Extension for Synthetic Asteroids Creation.',
+    date: '2025',
+    relatedProject: 'dlr',
+    icon: 'Award'
+  },
+  {
+    id: 'paper-masterthesis',
+    title: 'Published Master Thesis at DLR',
+    category: 'award',
+    description: 'A Comparative Study of Classical and Learning-Based Methods for Vision Aided Close-Proximity Asteroid Exploration. Achieved a grade of 1.3 at TUM.',
+    date: '2024',
+    relatedProject: 'dlr',
+    icon: 'Award'
+  },  
+  {
+    id: 'dlai-langchain-course',
+    title: 'Build LLM Apps with LangChain.js',
+    category: 'course',
+    description: 'Completed course on implementing LangChain.js, a JavaScript framework for building with LLMs.',
+    date: '2024',
+    icon: 'Book'
+  },
+  {
+    id: 'paper-semesterarbeit',
+    title: 'Published Semesterarbeit at DLR',
+    category: 'award',
+    description: 'Exploring Asteroids: A Survey. Achieved a grade of 1.3 at TUM.',
+    date: '2024',
+    relatedProject: 'dlr',
+    icon: 'Award'
+  },
+  {
+    id: 'rocket-hopper',
+    title: 'Excellence in Control and Simulation of Rocket Hopper Demonstrator',
+    category: 'performance',
+    description: 'Achieved a grade of 1.0 in Control and Simulation of Rocket Hopper Demonstrator at TUM.',
+    date: '2024',
+    relatedProject: 'rocket-hopper',
+    icon: 'Star'
+  },  
+  {
     id: 'deep-learning',
     title: 'Excellence in Hands-On Deep Learning',
     category: 'performance',
@@ -36,6 +80,14 @@ const awards: AwardItem[] = [
     relatedProject: 'mars-mission',
     icon: 'Star'
   },
+  {
+    id: 'stanford-ml-andrew-ng',
+    title: 'Machine Learning Specialization: Supervised, Unsupervised and Advanced Learning',
+    category: 'course',
+    description: 'Completed course on Machine Learning Specialization, taught by Andrew Ng, as part of Stanford Online.',
+    date: '2023',
+    icon: 'Book'
+  },  
   {
     id: 'rocket-propulsion-award',
     title: 'Excellence Award in Rocket Propulsion II',
@@ -87,12 +139,44 @@ const awards: AwardItem[] = [
     icon: 'Award'
   },
   {
+    id: 'upm-space-mining',
+    title: 'Introduction to Space Mining',
+    category: 'course',
+    description: 'Completed course on space mining, techno-economic implications and conceptual mission design.',
+    date: '2023',
+    icon: 'Book'
+  },
+  {
     id: 'orbital-mechanics',
     title: 'Outstanding Performance in Orbital Mechanics',
     category: 'performance',
     description: 'Achieved a grade of 10/10 in Orbital Mechanics and Dynamics at UPM.',
     date: '2021',
     relatedProject: 'mars-mission',
+    icon: 'Star'
+  },
+  {
+    id: 'upm-autocad',
+    title: 'AutoCAD Training',
+    category: 'course',
+    description: 'Completed course on AutoCAD, and 3D design.',
+    date: '2021',
+    icon: 'Book'
+  },
+  {
+    id: 'upm-gmc',
+    title: 'Global Management Challenge 2020 Semifinalists',
+    category: 'award',
+    description: 'Became semifinalists on GMC 2020.',
+    date: '2020',
+    icon: 'Star'
+  },
+  {
+    id: 'ssi-open-water',
+    title: 'Open Water Scuba Diver',
+    category: 'award',
+    description: 'Obtained Open Water licence certified by Dive SSI.',
+    date: '2020',
     icon: 'Star'
   },
 ]
