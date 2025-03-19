@@ -32,9 +32,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@fortranibal',
     title: 'Anibal Guerrero Hernandez Portfolio',
     description: 'Portfolio of Anibal Guerrero Hernandez, Aerospace Engineer, Entrepreneur, and Innovator',
-    images: ['/og_image.png'], // Corrected the image path
+    creator: '@fortranibal',
+    images: {
+      url: '/og_image.png',
+      width: 1200,
+      height: 630,
+      alt: 'Preview of Anibal&aposs Website',
+    }
   },
 };
 
