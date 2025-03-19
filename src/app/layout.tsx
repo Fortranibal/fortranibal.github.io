@@ -20,9 +20,37 @@ const inter = Inter({ subsets: ['latin'] })
 // });
 
 export const metadata: Metadata = {
-  title: 'Anibal Guerrero Hernandez Portfolio',
+  metadataBase: new URL ('https://anibalguerrero.com'),
+  title: {
+    default: 'Anibal Guerrero Hernandez Portfolio',
+    template: '%s | Anibal Guerrero Hernandez Portfolio',
+  },
+  
   description: 'Portfolio of Anibal Guerrero Hernandez, Aerospace Engineer, Entrepeneur, and Innovator',
-}
+
+  openGraph: {
+    title: 'Anibal Guerrero Hernandez Portfolio',
+    description: 'Portfolio of Anibal Guerrero Hernandez, Aerospace Engineer, Entrepeneur, and Innovator',
+    url: '/',
+    siteName: 'Anibal Guerrero Hernandez Portfolio',
+    images: [
+      {
+        url: '/public/og_image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Anibal Guerrero Hernandez Portfolio',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Anibal Guerrero Hernandez Portfolio',
+    description: 'Portfolio of Anibal Guerrero Hernandez, Aerospace Engineer, Entrepeneur, and Innovator',
+    images: ['/public/og_image.png'], // Add your image URL
+  },
+};
 
 export default function RootLayout({
   children,
