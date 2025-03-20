@@ -1,6 +1,5 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/toaster'
@@ -54,15 +53,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <Script
-          defer
-          data-website-id="67dc307bd7aebd858c3860ce"
-          data-domain="anibalguerrero.com"
-          src="https://datafa.st/js/script.js"
-          strategy="afterInteractive"
-        />
-      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
