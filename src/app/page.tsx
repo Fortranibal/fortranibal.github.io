@@ -18,6 +18,14 @@ const experience = [
     description: 'Trajectory optimization and mission design for Electron launches. 3DOF/6DOF analysis, Monte Carlo simulations, and Mission Control operations.',
   },
   {
+    company: 'Reflektion',
+    role: 'Founder',
+    period: '2025 —',
+    location: 'tryreflektion.com',
+    description: 'Building an AI mental wellness companion with voice and text conversations, long-term memory, structured insights, and multi-language support.',
+    link: 'https://tryreflektion.com',
+  },
+  {
     company: 'German Aerospace Center (DLR)',
     role: 'Student Researcher',
     period: '2024',
@@ -108,10 +116,13 @@ export default function Home() {
                 Aerospace Engineer · AI Enthusiast
               </p>
               <p className="text-[15px] leading-relaxed text-foreground/80 max-w-lg">
-                GNC Engineer at Rocket Lab, working on trajectory optimization and mission design
-                for Electron launches. Previously researcher at the German Aerospace Center (DLR) and
-                co-lead at WARR Rocketry. Passionate about autonomous navigation, space missions,
-                and the intersection of aerospace and AI.
+                GNC Engineer at Rocket Lab and founder of{' '}
+                <Link href="https://tryreflektion.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  Reflektion
+                </Link>
+                , an AI mental wellness companion. Previously researcher at the German Aerospace
+                Center (DLR) and co-lead at WARR Rocketry. Passionate about autonomous navigation,
+                space missions, and the intersection of aerospace and AI.
               </p>
             </div>
             <div className="shrink-0">
@@ -140,7 +151,13 @@ export default function Home() {
               <div key={item.company + item.role} className="group">
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1.5">
                   <div>
-                    <span className="font-medium text-foreground">{item.company}</span>
+                    {item.link ? (
+                      <Link href={item.link} target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary transition-colors">
+                        {item.company} ↗
+                      </Link>
+                    ) : (
+                      <span className="font-medium text-foreground">{item.company}</span>
+                    )}
                     <span className="text-muted-foreground"> · {item.role}</span>
                   </div>
                   <span className="text-sm text-muted-foreground shrink-0">{item.period}</span>
