@@ -2,30 +2,27 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
-import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ subsets: ['latin'] })
-
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://anibalguerrero.com'),
   title: {
-    default: 'Anibal Guerrero Hernandez Portfolio',
-    template: '%s | Anibal Guerrero Hernandez Portfolio',
+    default: 'Aníbal Guerrero Hernandez',
+    template: '%s | Aníbal Guerrero Hernandez',
   },
-  description: 'Portfolio of Anibal Guerrero Hernandez, Aerospace Engineer, Entrepreneur, and Innovator',
-
+  description: 'Aerospace Engineer & AI Enthusiast. GNC Engineer at Rocket Lab.',
   openGraph: {
-    title: 'Anibal Guerrero Hernandez Portfolio',
-    description: 'Portfolio of Anibal Guerrero Hernandez, Aerospace Engineer, Entrepreneur, and Innovator',
+    title: 'Aníbal Guerrero Hernandez',
+    description: 'Aerospace Engineer & AI Enthusiast. GNC Engineer at Rocket Lab.',
     url: 'https://anibalguerrero.com',
-    siteName: 'Anibal Guerrero Hernandez Portfolio',
+    siteName: 'Aníbal Guerrero Hernandez',
     images: [
       {
-        url: '/og_image.png', // Corrected the image path
+        url: '/og_image.png',
         width: 1200,
         height: 630,
-        alt: 'Anibal Guerrero Hernandez Portfolio',
+        alt: 'Aníbal Guerrero Hernandez',
       },
     ],
     locale: 'en_US',
@@ -34,17 +31,17 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@fortranibal',
-    title: 'Anibal Guerrero Hernandez Portfolio',
-    description: 'Portfolio of Anibal Guerrero Hernandez, Aerospace Engineer, Entrepreneur, and Innovator',
+    title: 'Aníbal Guerrero Hernandez',
+    description: 'Aerospace Engineer & AI Enthusiast. GNC Engineer at Rocket Lab.',
     creator: '@fortranibal',
     images: {
       url: '/og_image.png',
       width: 1200,
       height: 630,
-      alt: 'Preview of Anibal&aposs Website',
+      alt: 'Aníbal Guerrero Hernandez',
     }
   },
-};
+}
 
 export default function RootLayout({
   children,
@@ -56,12 +53,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem={false} 
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}
-          <Toaster />
         </ThemeProvider>
       </body>
     </html>

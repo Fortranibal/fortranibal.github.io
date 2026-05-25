@@ -350,6 +350,7 @@ export interface ProjectMedia {
             'Generated over 30,000 diverse asteroid samples',
             'Successfully integrated with YOLOv7 object detection'
         ],
+        featured: true,
     },
 
     {
@@ -651,7 +652,8 @@ export interface ProjectMedia {
             'Developed optimization algorithms including gradient descent and Adam',
             'Created Bayesian inference models for uncertainty quantification',
             'Achieved significant performance improvements through hyperparameter optimization'
-        ]
+        ],
+        featured: true,
     },
     
     {
