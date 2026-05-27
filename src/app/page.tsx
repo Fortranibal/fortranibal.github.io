@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Github, Linkedin, ArrowUpRight } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { Badge } from '@/components/ui/badge'
+import { ProjectThumbnail } from '@/components/ProjectThumbnail'
 import { getFeaturedProjects } from '@/data/projects'
 
 const ThemeToggle = dynamic(() => import('@/components/ThemeToggle'), { ssr: false })
@@ -190,24 +191,8 @@ export default function Home() {
                 key={project.id}
                 className="group rounded-lg border border-border/60 bg-card p-5 hover:border-border transition-colors"
               >
-                <div className="relative w-full h-36 mb-4 rounded-md overflow-hidden bg-muted">
-                  {project.media.type === 'video' ? (
-                    <video
-                      src={project.media.src}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <Image
-                      src={project.media.src}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                  )}
+                <div className={`relative w-full h-36 mb-4 rounded-md overflow-hidden ${project.media.objectFit === 'contain' ? 'bg-black' : 'bg-muted'}`}>
+                  <ProjectThumbnail project={project} />
                 </div>
                 <h3 className="font-medium text-foreground text-[15px] mb-1.5 leading-snug">
                   {project.title}

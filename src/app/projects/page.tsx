@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Github, Linkedin, ArrowLeft } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { Badge } from '@/components/ui/badge'
+import { ProjectThumbnail } from '@/components/ProjectThumbnail'
 import { projects } from '@/data/projects'
 
 const ThemeToggle = dynamic(() => import('@/components/ThemeToggle'), { ssr: false })
@@ -92,24 +92,8 @@ export default function ProjectsPage() {
               key={project.id}
               className="group rounded-lg border border-border/60 bg-card overflow-hidden hover:border-border transition-colors"
             >
-              <div className="relative w-full h-40 bg-muted">
-                {project.media.type === 'video' ? (
-                  <video
-                    src={project.media.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <Image
-                    src={project.media.src}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                )}
+              <div className={`relative w-full h-40 ${project.media.objectFit === 'contain' ? 'bg-black' : 'bg-muted'}`}>
+                <ProjectThumbnail project={project} />
               </div>
               <div className="p-4">
                 <h3 className="font-medium text-foreground text-[15px] mb-1.5 leading-snug">

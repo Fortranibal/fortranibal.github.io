@@ -15,6 +15,8 @@ export interface ProjectMedia {
         type: 'video' | 'image';
         src: string;
         aspectRatio: '16:9' | '9:16' | '4:3' | '1:1';
+        objectFit?: 'cover' | 'contain';
+        objectPosition?: string;
       };
     category: string[];         //'aerospace' | 'computer-science' | 'finance';
     technologies: string[];
@@ -96,8 +98,8 @@ export interface ProjectMedia {
         longDescription: 'This project, conducted at TUM\'s Chair of Space Mobility and Propulsion, focused on creating a comprehensive digital twin simulation and implementing TD3 (Twin Delayed Deep Deterministic Policy Gradient) algorithms for precise altitude control of a single-degree-of-freedom rocket platform. The project demonstrated successful integration of advanced control theory with practical aerospace engineering, validating reinforcement learning approaches for rocket control applications.',
         media: {
             type: 'image',
-            src: '/media/projects/01-RH/RH - RL Simulations.jpg',
-            aspectRatio: '16:9'
+            src: '/media/projects/01-RH/hero.png',
+            aspectRatio: '16:9',
             },
         category: ['computer-science', 'aerospace'],
         technologies: ['Reinforcement Learning', 'Control Systems', 'Python', 'EcoSim Pro', 'Teensy'],
@@ -209,7 +211,7 @@ export interface ProjectMedia {
         longDescription: 'EX-1D represented WESP\'s inaugural rocket development project. As a founding project initiated in May 2023, the project focused on developing a single-stage solid propellant rocket.',
         media: {
             type: 'image',
-            src:  '/media/projects/12-EX-1D/2024-04 STRAUBING/_1023273.jpg',
+            src:  '/media/projects/12-EX-1D/2024-04 STRAUBING/EX-1D Launch Straubing.png',
             aspectRatio: '16:9',
             },
         category: ['aerospace'],
@@ -262,6 +264,8 @@ export interface ProjectMedia {
             type: 'image',
             src:  '/media/projects/16-TFM/Feature Matcher - BFM.jpg',
             aspectRatio: '16:9',
+            objectFit: 'contain',
+            objectPosition: 'center',
             },
         category: ['computer-science', 'aerospace'],
         technologies: ['Computer Vision', 'Python', 'OpenCV', 'Deep Learning', '3D Reconstruction'],
@@ -308,8 +312,8 @@ export interface ProjectMedia {
         longDescription: 'Developed an Enhanced Synthetic Data Generation Pipeline for Asteroid Exploration using DLR\'s OAISYS simulator. This research project addressed critical challenges in machine learning applications for asteroid exploration by creating comprehensive synthetic datasets.',
         media: {
             type: 'image',
-            src:  '/media/projects/11-Semesterarbeit/Exploring Asteroids - A Survey (Semesterarbeit - Anibal Guerrero Hernandez).jpg',
-            aspectRatio: '9:16',
+            src:  '/media/projects/11-Semesterarbeit/hero.png',
+            aspectRatio: '16:9',
             },
         category: ['computer-science', 'aerospace'],
         technologies: ['Computer Vision', 'Deep Learning', 'Python', 'Blender', 'R&D'],
@@ -397,8 +401,8 @@ export interface ProjectMedia {
         longDescription: 'Led the design and analysis of an advanced spacecraft propulsion system for a Phobos exploration mission. As part of a four-person team, developed a sophisticated bi-propellant propulsion architecture optimized for a two-year mission to Mars\' largest moon.',
         media: {
             type: 'image',
-            src:  '/media/projects/09-SPI/SPI P&ID.png',
-            aspectRatio: '1:1',
+            src:  '/media/projects/09-SPI/hero.png',
+            aspectRatio: '16:9',
             },
         category: ['aerospace'],
         technologies: ['MATLAB', 'GMAT', 'P&ID', 'Mission Analysis', 'Systems Engineering', 'Trajectory Optimization'],
@@ -433,8 +437,8 @@ export interface ProjectMedia {
         longDescription: 'Led the trajectory design and development for an innovative comet exploration mission as part of a 4-person team at TUM\'s Chair of Pico and Nano Satellites. The mission focused on mining and analyzing Main-Belt Comet 324P/La Sagra using SpaceX\'s Starship platform.',
         media: {
             type: 'image',
-            src:  '/media/projects/08-SMD/Payload Strategy.png',
-            aspectRatio: '1:1',
+            src:  '/media/projects/08-SMD/hero.png',
+            aspectRatio: '16:9',
             },
         category: ['aerospace'],
         technologies: ['Mission Analysis', 'Orbital Mechanics', 'Power Systems', 'MATLAB/GMAT', 'Trajectory Design'],
@@ -484,8 +488,8 @@ export interface ProjectMedia {
         longDescription: 'Led the power systems design for an innovative Earth observation satellite project at TUM\'s Chair of Pico and Nano Satellites. The mission focused on detecting and mapping ocean plastic pollution using advanced optical instrumentation, working within a team of 6-8 engineers.',
         media: {
             type: 'image',
-            src:  '/media/projects/07-SDF/MATLAB SSO Script.png',
-            aspectRatio: '1:1',
+            src:  '/media/projects/07-SDF/hero.png',
+            aspectRatio: '16:9',
             },
         category: ['aerospace'],
         technologies: ['MATLAB', 'GMAT', 'Systems Engineering', 'Power Systems', 'Thermal Control', 'AOCS'],
@@ -700,8 +704,8 @@ export interface ProjectMedia {
         longDescription: 'The Financial Market Simulator is a C++ application designed to mimic real-world stock market dynamics by integrating user-selected financial strategies and real S&P500 market data. This simulator operates in two main modules - User Portfolio and Market Simulation. It leverages Geometric Brownian Motion (GBM) for stock price movement prediction and allows users to simulate multiple investment timelines.',
         media: {
             type: 'image',
-            src:  '/media/projects/02-AP/GBM.png',
-            aspectRatio: '9:16',
+            src:  '/media/projects/02-AP/hero.png',
+            aspectRatio: '16:9',
             },
         category: ['finance', 'computer-science'],
         technologies: ['C++', 'Geometric Brownian Motion', 'Object-Oriented Design', 'Stochastic Processes', 'Quantitative Analysis'],
@@ -737,7 +741,7 @@ export interface ProjectMedia {
         longDescription: 'Developed a fully functional web-based chat application through TUM\'s Make Your Own App course, progressing from basic HTML/CSS implementation to advanced JavaScript functionality.',
         media: {
             type: 'image',
-            src:  '/media/projects/04-IP/MYOA Banner.webp',
+            src:  '/media/projects/04-IP/hero.png',
             aspectRatio: '16:9',
             },
         category: ['computer-science'],
