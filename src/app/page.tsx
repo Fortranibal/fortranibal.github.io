@@ -54,7 +54,7 @@ const education = [
     institution: 'Technical University of Munich (TUM)',
     degree: 'M.Sc. Aerospace',
     field: 'Space Engineering & Computer Science',
-    period: '2022 — 2025',
+    period: '2022 — 2024',
   },
   {
     institution: 'Technical University of Madrid (UPM)',

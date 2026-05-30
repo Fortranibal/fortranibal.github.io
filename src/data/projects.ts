@@ -30,6 +30,61 @@ export interface ProjectMedia {
   
   export const projects: ProjectItem[] = [
     {
+        id: 'rocket-lab-electron-missions',
+        title: 'Rocket Lab: Operational Electron Missions',
+        description:
+            'GNC and mission design on dedicated Electron launches for JAXA, Synspective (StriX-6), and Open Cosmos—including trajectory work, Monte Carlo analysis, and Mission Control operations.',
+        longDescription:
+            'As a GNC Engineer at Rocket Lab in Auckland, I contribute to trajectory optimization and mission design for operational Electron launches. This work spans 3DOF/6DOF analysis, Monte Carlo simulations, and Mission Control operations. Selected missions include JAXA’s first dedicated Electron flight (RAISE And Shine), the eighth Synspective StriX deployment (Eight Days A Week), and Open Cosmos’s constellation debut (The Cosmos Will See You Now).',
+        media: {
+            type: 'image',
+            src: '/media/projects/19-Rocket-Lab/hero.jpg',
+            aspectRatio: '16:9',
+        },
+        category: ['aerospace'],
+        technologies: [
+            'Trajectory Optimization',
+            'Mission Design',
+            '3DOF/6DOF Simulation',
+            'Monte Carlo Analysis',
+            'Mission Control',
+        ],
+        additionalMedia: [
+            {
+                type: 'image',
+                src: '/media/projects/19-Rocket-Lab/raise-pad-jaxa.jpg',
+                alt: 'RAISE And Shine — JAXA fairing on pad at Launch Complex 1',
+                description:
+                    'RAISE And Shine (Dec 2025): first dedicated Electron launch for JAXA; deployed RAISE-4 to SSO for the Innovative Satellite Technology Demonstration Program.',
+                aspectRatio: '9:16',
+            },
+            {
+                type: 'image',
+                src: '/media/projects/19-Rocket-Lab/strix-fairing-cleanroom.jpg',
+                alt: 'Eight Days A Week — Synspective StriX fairing in integration',
+                description:
+                    'Eight Days A Week (Mar 2026): eighth StriX SAR satellite for Synspective’s Earth-observation constellation on dedicated Electron.',
+                aspectRatio: '9:16',
+            },
+            {
+                type: 'image',
+                src: '/media/projects/19-Rocket-Lab/cosmos-fairing-facility.jpg',
+                alt: 'The Cosmos Will See You Now — Open Cosmos fairing at Rocket Lab',
+                description:
+                    'The Cosmos Will See You Now (Jan 2026): deployed MR-1 and MR-2 to ~1,050 km LEO for Open Cosmos’s Ka-band broadband constellation.',
+                aspectRatio: '16:9',
+            },
+        ],
+        achievements: [
+            'RAISE And Shine: supported JAXA’s first dedicated Electron mission (RAISE-4 tech demonstration, SSO)',
+            'Eight Days A Week: mission design and operations for StriX-6, eighth Synspective launch on Electron',
+            'The Cosmos Will See You Now: trajectory and deployment for Open Cosmos MR-1 & MR-2 to ~1,050 km circular LEO',
+            'Contributed across government, commercial constellation, and new-customer dedicated launch profiles',
+        ],
+        featured: true,
+        isVertical: true,
+    },
+    {
         id: 'ex-1e-rocket',
         title: 'EX-1E: Two-Stage Rocket Launch at SAC24',
         description: 'Co-led the development of EX-1E, a groundbreaking two-stage rocket that achieved historic success at the 2024 Spaceport America Cup.',
