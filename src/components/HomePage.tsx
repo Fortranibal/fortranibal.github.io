@@ -8,8 +8,30 @@ import { Badge } from '@/components/ui/badge'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail'
 import { SocialLinks } from '@/components/SocialLinks'
 import { getFeaturedProjects } from '@/data/projects'
+import { HOMEPAGE_PUBLICATIONS } from '@/lib/structured-data'
 
 const ThemeToggle = dynamic(() => import('@/components/ThemeToggle'), { ssr: false })
+
+function AuthorList({
+  authors,
+}: {
+  authors: readonly { readonly name: string; readonly isOwner?: boolean }[]
+}) {
+  return (
+    <>
+      {authors.map((author, index) => (
+        <span key={author.name}>
+          {index > 0 ? ', ' : null}
+          {author.isOwner ? (
+            <strong className="font-semibold text-foreground">{author.name}</strong>
+          ) : (
+            author.name
+          )}
+        </span>
+      ))}
+    </>
+  )
+}
 
 type ExperienceItem = {
   company: string
@@ -90,6 +112,12 @@ export function HomePage() {
             Anibal Guerrero Hernandez
           </span>
           <div className="flex items-center gap-5">
+            <Link
+              href="#publications"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Publications
+            </Link>
             <Link
               href="/projects"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -182,6 +210,101 @@ export function HomePage() {
                 </p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <hr className="border-border/60" />
+
+        {/* Publications */}
+        <section id="publications" className="py-16 scroll-mt-20">
+          <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-8">
+            Publications
+          </h2>
+          <div className="space-y-8">
+            <div>
+              <p className="text-sm text-foreground/80 leading-relaxed">
+                <AuthorList authors={HOMEPAGE_PUBLICATIONS.aeroconf2025.authors} />
+                {', '}
+                &lsquo;
+                <Link
+                  href={HOMEPAGE_PUBLICATIONS.aeroconf2025.doiUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  {HOMEPAGE_PUBLICATIONS.aeroconf2025.title}
+                </Link>
+                &rsquo;, {HOMEPAGE_PUBLICATIONS.aeroconf2025.venue},{' '}
+                {HOMEPAGE_PUBLICATIONS.aeroconf2025.pages}. DOI{' '}
+                <Link
+                  href={HOMEPAGE_PUBLICATIONS.aeroconf2025.doiUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  {HOMEPAGE_PUBLICATIONS.aeroconf2025.doi}
+                </Link>
+                {', '}
+                <Link
+                  href={HOMEPAGE_PUBLICATIONS.aeroconf2025.elibUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  DLR elib
+                </Link>
+                . {HOMEPAGE_PUBLICATIONS.aeroconf2025.awardLabel}.
+              </p>
+              <p className="text-sm text-foreground/60 leading-relaxed mt-2">
+                Cited by:{' '}
+                {HOMEPAGE_PUBLICATIONS.aeroconf2025.citedBy.authors}, &lsquo;
+                <Link
+                  href={HOMEPAGE_PUBLICATIONS.aeroconf2025.citedBy.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  {HOMEPAGE_PUBLICATIONS.aeroconf2025.citedBy.title}
+                </Link>
+                &rsquo; ({HOMEPAGE_PUBLICATIONS.aeroconf2025.citedBy.affiliation}).
+              </p>
+            </div>
+
+            <div>
+              <p className="text-sm text-foreground/80 leading-relaxed">
+                <AuthorList authors={HOMEPAGE_PUBLICATIONS.masterThesis.authors} />
+                {', '}
+                &lsquo;
+                <Link
+                  href={HOMEPAGE_PUBLICATIONS.masterThesis.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  {HOMEPAGE_PUBLICATIONS.masterThesis.title}
+                </Link>
+                &rsquo;, {HOMEPAGE_PUBLICATIONS.masterThesis.kind},{' '}
+                {HOMEPAGE_PUBLICATIONS.masterThesis.year}.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-sm text-foreground/80 leading-relaxed">
+                <AuthorList authors={HOMEPAGE_PUBLICATIONS.studentThesis.authors} />
+                {', '}
+                &lsquo;
+                <Link
+                  href={HOMEPAGE_PUBLICATIONS.studentThesis.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  {HOMEPAGE_PUBLICATIONS.studentThesis.title}
+                </Link>
+                &rsquo;, {HOMEPAGE_PUBLICATIONS.studentThesis.kind},{' '}
+                {HOMEPAGE_PUBLICATIONS.studentThesis.year}.
+              </p>
+            </div>
           </div>
         </section>
 

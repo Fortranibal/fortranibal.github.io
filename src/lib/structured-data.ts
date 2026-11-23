@@ -31,6 +31,54 @@ export const PUBLICATION_LINKS = {
   exploringAsteroidsSurvey: {
     elibUrl: 'https://elib.dlr.de/208193/',
   },
+  citedByVisionBeyondEarth: {
+    elibUrl: 'https://elib.dlr.de/224189/',
+  },
+} as const
+
+/** Homepage Publications section — verified facts only. */
+export const HOMEPAGE_PUBLICATIONS = {
+  aeroconf2025: {
+    authors: [
+      { name: 'M. G. Müller' },
+      { name: 'W. Boerdijk' },
+      { name: 'A. G. Hernandez', isOwner: true },
+      { name: 'L. Klüpfel' },
+      { name: 'M. Durner' },
+      { name: 'R. Triebel' },
+    ],
+    title:
+      'Bridging the Data Gap of Asteroid Exploration: OAISYS Extension for Synthetic Asteroids Creation',
+    venue: '2025 IEEE Aerospace Conference',
+    pages: 'pp. 1-13',
+    doi: PUBLICATION_LINKS.aeroconf2025.doi,
+    doiUrl: PUBLICATION_LINKS.aeroconf2025.doiUrl,
+    elibUrl: PUBLICATION_LINKS.aeroconf2025.elibUrl,
+    /** Exact award wording already used on the DLR experience entry. */
+    awardLabel: 'IEEE Aerospace Conference 2025 Track Best Paper',
+    citedBy: {
+      authors: 'M. G. Müller et al.',
+      title:
+        'Vision Beyond Earth: Synthetic Satellite Data for Neural Perception in Orbit',
+      affiliation: 'DLR / ETH Zurich',
+      url: PUBLICATION_LINKS.citedByVisionBeyondEarth.elibUrl,
+    },
+  },
+  masterThesis: {
+    authors: [{ name: 'Anibal Guerrero Hernandez', isOwner: true }],
+    title:
+      'A Comparative Study of Classical and Learning-Based Methods for Vision-Aided Close-Proximity Asteroid Exploration',
+    kind: "Master's thesis",
+    year: '2025',
+    url: PUBLICATION_LINKS.masterThesis.elibUrl,
+  },
+  studentThesis: {
+    authors: [{ name: 'Anibal Guerrero Hernandez', isOwner: true }],
+    title: 'Exploring Asteroids: A Survey',
+    kind: 'Student thesis',
+    year: '2024',
+    url: PUBLICATION_LINKS.exploringAsteroidsSurvey.elibUrl,
+  },
 } as const
 
 const TUM_ORGANIZATION = {
@@ -87,12 +135,18 @@ export function buildScholarlyArticleJsonLd() {
       author: [
         { '@type': 'Person', name: 'Marcus Gerhard Müller' },
         { '@type': 'Person', name: 'Wout Boerdijk' },
-        { '@id': PERSON_ID },
+        {
+          '@type': 'Person',
+          '@id': PERSON_ID,
+          name: 'Anibal Guerrero Hernandez',
+        },
         { '@type': 'Person', name: 'Leonard Klüpfel' },
         { '@type': 'Person', name: 'Maximilian Durner' },
         { '@type': 'Person', name: 'Rudolph Triebel' },
       ],
       datePublished: '2025-07-14',
+      pageStart: '1',
+      pageEnd: '13',
       isPartOf: {
         '@type': 'CreativeWork',
         name: '2025 IEEE Aerospace Conference (AERO 2025)',
