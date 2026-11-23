@@ -87,7 +87,7 @@ export function HomePage() {
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/40">
         <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
           <span className="text-sm font-medium text-foreground">
-            Aníbal Guerrero Hernandez
+            Anibal Guerrero Hernandez
           </span>
           <div className="flex items-center gap-5">
             <Link
@@ -110,7 +110,7 @@ export function HomePage() {
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
             <div className="flex-1">
               <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-3">
-                Aníbal Guerrero<br />Hernandez
+                Anibal Guerrero<br />Hernandez
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
                 Aerospace Engineer · AI Enthusiast
@@ -129,7 +129,7 @@ export function HomePage() {
               <div className="w-28 h-28 sm:w-32 sm:h-32 relative rounded-full overflow-hidden ring-2 ring-border">
                 <Image
                   src="/media/shared/pfp.jpeg"
-                  alt="Aníbal Guerrero Hernandez"
+                  alt="Anibal Guerrero Hernandez"
                   fill
                   className="object-cover"
                   priority
@@ -277,7 +277,7 @@ export function HomePage() {
       <footer className="border-t border-border/60">
         <div className="max-w-3xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Aníbal Guerrero Hernandez
+            © {new Date().getFullYear()} Anibal Guerrero Hernandez
           </p>
           <SocialLinks className="flex items-center gap-4" />
         </div>

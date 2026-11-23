@@ -6,7 +6,7 @@ import { SITE_CANONICAL_URL } from '@/lib/structured-data'
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
 
-const SITE_NAME = 'Aníbal Guerrero Hernández'
+const SITE_NAME = 'Anibal Guerrero Hernandez'
 const DEFAULT_TITLE = `${SITE_NAME} | GNC Engineer`
 const DESCRIPTION =
   'Aerospace Engineer & AI Enthusiast. GNC Engineer at Rocket Lab.'

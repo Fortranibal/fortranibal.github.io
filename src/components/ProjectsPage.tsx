@@ -32,7 +32,7 @@ export function ProjectsPage() {
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/40">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-sm font-medium text-foreground">
-            Aníbal Guerrero Hernandez
+            Anibal Guerrero Hernandez
           </Link>
           <div className="flex items-center gap-3">
             <SocialLinks />
@@ -127,7 +127,7 @@ export function ProjectsPage() {
       <footer className="border-t border-border/60">
         <div className="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Aníbal Guerrero Hernandez
+            © {new Date().getFullYear()} Anibal Guerrero Hernandez
           </p>
           <SocialLinks className="flex items-center gap-4" />
         </div>
