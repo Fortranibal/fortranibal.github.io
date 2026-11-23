@@ -26,7 +26,7 @@ export function ProjectsPage() {
     : projects.filter(project => project.category.includes(selectedCategory))
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-clip">
       <SiteHeader
         maxWidthClass="max-w-4xl"
         brandLabel="Anibal Guerrero Hernandez"

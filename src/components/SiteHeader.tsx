@@ -45,7 +45,8 @@ function Brand({
 
 /**
  * Responsive site header. Desktop (sm+) keeps the single-row layout with socials.
- * Mobile stacks brand + toggle, then nav links; social icons remain in the footer.
+ * Mobile is a single compact row: short brand | nav links + theme toggle.
+ * Social icons remain in the footer on mobile.
  */
 export function SiteHeader({
   maxWidthClass = 'max-w-3xl',
@@ -58,24 +59,24 @@ export function SiteHeader({
 
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/40">
-      <div className={`${maxWidthClass} mx-auto w-full px-5 sm:px-6 py-4`}>
-        {/* Mobile (<640px) */}
-        <div className="flex flex-col gap-3 sm:hidden min-w-0">
-          <div className="flex items-center justify-between gap-3 min-w-0">
-            <div className="min-w-0 truncate">
-              <Brand
-                label={shortLabel}
-                href={brandHref}
-                className={`${brandClassName} whitespace-nowrap`}
-              />
-            </div>
-            <div className="shrink-0">
-              <ThemeToggle />
-            </div>
+      <div className={`${maxWidthClass} mx-auto w-full px-5 sm:px-6 py-3 sm:py-4`}>
+        {/* Mobile (<640px): one row */}
+        <div className="flex sm:hidden items-center justify-between gap-2 min-w-0">
+          <div className="min-w-0 shrink">
+            <Brand
+              label={shortLabel}
+              href={brandHref}
+              className={`${brandClassName} text-[13px] whitespace-nowrap`}
+            />
           </div>
-          {navLinks ? (
-            <nav className="flex items-center gap-4 min-w-0 flex-wrap">{navLinks}</nav>
-          ) : null}
+          <div className="flex items-center gap-2.5 shrink-0 min-w-0">
+            {navLinks ? (
+              <nav className="flex items-center gap-2.5 whitespace-nowrap [&_a]:text-[13px]">
+                {navLinks}
+              </nav>
+            ) : null}
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* Desktop (sm+) — original single-row layout */}
