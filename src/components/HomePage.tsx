@@ -109,6 +109,9 @@ export function HomePage() {
         brandShortLabel="Anibal G. H."
         navLinks={
           <>
+            <Link href="#experience" className={navLinkClassName}>
+              Experience
+            </Link>
             <Link href="#publications" className={navLinkClassName}>
               Publications
             </Link>
@@ -157,7 +160,7 @@ export function HomePage() {
         <hr className="border-border/60" />
 
         {/* Experience */}
-        <section className="py-16">
+        <section id="experience" className="py-16 scroll-mt-20">
           <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-8">
             Experience
           </h2>

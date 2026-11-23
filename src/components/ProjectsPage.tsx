@@ -6,7 +6,7 @@ import { Github, ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail'
 import { SocialLinks } from '@/components/SocialLinks'
-import { SiteHeader } from '@/components/SiteHeader'
+import { SiteHeader, navLinkClassName } from '@/components/SiteHeader'
 import { projects } from '@/data/projects'
 
 const categories = [
@@ -32,6 +32,19 @@ export function ProjectsPage() {
         brandLabel="Anibal Guerrero Hernandez"
         brandShortLabel="Anibal G. H."
         brandHref="/"
+        navLinks={
+          <>
+            <Link href="/#experience" className={navLinkClassName}>
+              Experience
+            </Link>
+            <Link href="/#publications" className={navLinkClassName}>
+              Publications
+            </Link>
+            <Link href="/projects" className={navLinkClassName}>
+              Projects
+            </Link>
+          </>
+        }
       />
 
       <main className="max-w-4xl mx-auto w-full px-5 sm:px-6 py-12 min-w-0">

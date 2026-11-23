@@ -60,18 +60,18 @@ export function SiteHeader({
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/40">
       <div className={`${maxWidthClass} mx-auto w-full px-5 sm:px-6 py-3 sm:py-4`}>
-        {/* Mobile (<640px): one row */}
-        <div className="flex sm:hidden items-center justify-between gap-2 min-w-0">
+        {/* Mobile (<640px): one compact row */}
+        <div className="flex sm:hidden items-center justify-between gap-1.5 min-w-0">
           <div className="min-w-0 shrink">
             <Brand
               label={shortLabel}
               href={brandHref}
-              className={`${brandClassName} text-[13px] whitespace-nowrap`}
+              className={`${brandClassName} text-[12px] whitespace-nowrap`}
             />
           </div>
-          <div className="flex items-center gap-2.5 shrink-0 min-w-0">
+          <div className="flex items-center gap-1.5 shrink-0 min-w-0">
             {navLinks ? (
-              <nav className="flex items-center gap-2.5 whitespace-nowrap [&_a]:text-[13px]">
+              <nav className="flex items-center gap-1.5 whitespace-nowrap [&_a]:text-[12px]">
                 {navLinks}
               </nav>
             ) : null}
