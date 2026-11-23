@@ -3,13 +3,11 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Github, ArrowLeft, ArrowUpRight } from 'lucide-react'
-import dynamic from 'next/dynamic'
 import { Badge } from '@/components/ui/badge'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail'
 import { SocialLinks } from '@/components/SocialLinks'
+import { SiteHeader } from '@/components/SiteHeader'
 import { projects } from '@/data/projects'
-
-const ThemeToggle = dynamic(() => import('@/components/ThemeToggle'), { ssr: false })
 
 const categories = [
   { key: 'all', label: 'All' },
@@ -28,20 +26,15 @@ export function ProjectsPage() {
     : projects.filter(project => project.category.includes(selectedCategory))
 
   return (
-    <div className="min-h-screen">
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/40">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-sm font-medium text-foreground">
-            Anibal Guerrero Hernandez
-          </Link>
-          <div className="flex items-center gap-3">
-            <SocialLinks />
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen overflow-x-hidden">
+      <SiteHeader
+        maxWidthClass="max-w-4xl"
+        brandLabel="Anibal Guerrero Hernandez"
+        brandShortLabel="Anibal G. H."
+        brandHref="/"
+      />
 
-      <main className="max-w-4xl mx-auto px-6 py-12">
+      <main className="max-w-4xl mx-auto w-full px-5 sm:px-6 py-12 min-w-0">
         <Link
           href="/"
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
@@ -51,7 +44,7 @@ export function ProjectsPage() {
         </Link>
 
         <h1 className="text-2xl font-bold tracking-tight text-foreground mb-2">Projects</h1>
-        <p className="text-muted-foreground mb-8">
+        <p className="text-muted-foreground mb-8 break-words">
           A collection of work spanning aerospace engineering, computer science, and finance.
         </p>
 
@@ -75,16 +68,16 @@ export function ProjectsPage() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group rounded-lg border border-border/60 bg-card overflow-hidden hover:border-border transition-colors"
+              className="group rounded-lg border border-border/60 bg-card overflow-hidden hover:border-border transition-colors min-w-0"
             >
               <div className={`relative w-full h-40 ${project.media.objectFit === 'contain' ? 'bg-black' : 'bg-muted'}`}>
                 <ProjectThumbnail project={project} />
               </div>
-              <div className="p-4">
-                <h3 className="font-medium text-foreground text-[15px] mb-1.5 leading-snug">
+              <div className="p-4 min-w-0">
+                <h3 className="font-medium text-foreground text-[15px] mb-1.5 leading-snug break-words">
                   {project.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                <p className="text-sm text-muted-foreground mb-3 line-clamp-2 break-words">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-3">
@@ -125,11 +118,11 @@ export function ProjectsPage() {
       </main>
 
       <footer className="border-t border-border/60">
-        <div className="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+        <div className="max-w-4xl mx-auto w-full px-5 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 min-w-0">
+          <p className="text-sm text-muted-foreground text-center sm:text-left">
             © {new Date().getFullYear()} Anibal Guerrero Hernandez
           </p>
-          <SocialLinks className="flex items-center gap-4" />
+          <SocialLinks className="flex items-center gap-4 flex-wrap justify-center" />
         </div>
       </footer>
     </div>
