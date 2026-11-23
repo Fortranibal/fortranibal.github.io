@@ -7,10 +7,13 @@ export const PERSON_ID = `${SITE_URL}/#person`
 export const TUM_ID = `${SITE_URL}/#organization-tum`
 
 /** Profiles clearly linked from the site (plus LinkedIn URL normalized to the canonical form). */
+export const PERSON_ORCID = 'https://orcid.org/0009-0004-2571-2853'
+
 export const PERSON_SAME_AS = [
   'https://www.linkedin.com/in/anibal-guerrero/',
   'https://github.com/Fortranibal',
   'https://scholar.google.com/citations?user=t6kLm3cAAAAJ',
+  PERSON_ORCID,
   'https://x.com/fortranibal',
 ] as const
 
@@ -60,6 +63,11 @@ export function buildPersonJsonLd() {
     alumniOf: {
       ...TUM_ORGANIZATION,
       description: 'M.Sc. Aerospace',
+    },
+    identifier: {
+      '@type': 'PropertyValue',
+      propertyID: 'ORCID',
+      value: PERSON_ORCID,
     },
     sameAs: [...PERSON_SAME_AS],
   }
