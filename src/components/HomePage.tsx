@@ -10,7 +10,17 @@ import { getFeaturedProjects } from '@/data/projects'
 
 const ThemeToggle = dynamic(() => import('@/components/ThemeToggle'), { ssr: false })
 
-const experience = [
+type ExperienceItem = {
+  company: string
+  role: string
+  period: string
+  location: string
+  description: string
+  link?: string
+  publication?: { href: string; label: string }
+}
+
+const experience: ExperienceItem[] = [
   {
     company: 'Rocket Lab',
     role: 'GNC Engineer',
@@ -31,7 +41,11 @@ const experience = [
     role: 'Student Researcher',
     period: '2024',
     location: 'Munich, Germany',
-    description: 'Computer vision pipeline for autonomous asteroid navigation and 3D reconstruction. IEEE Aerospace Conference 2025 Track Best Paper.',
+    description: 'Computer vision pipeline for autonomous asteroid navigation and 3D reconstruction.',
+    publication: {
+      href: 'https://doi.org/10.1109/AERO63441.2025.11068790',
+      label: 'IEEE Aerospace Conference 2025 Track Best Paper',
+    },
   },
   {
     company: 'WARR Rocketry',
@@ -164,7 +178,23 @@ export function HomePage() {
                   <span className="text-sm text-muted-foreground shrink-0">{item.period}</span>
                 </div>
                 <p className="text-sm text-foreground/60 mb-1">{item.location}</p>
-                <p className="text-sm text-foreground/70 leading-relaxed">{item.description}</p>
+                <p className="text-sm text-foreground/70 leading-relaxed">
+                  {item.description}
+                  {item.publication ? (
+                    <>
+                      {' '}
+                      <Link
+                        href={item.publication.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline"
+                      >
+                        {item.publication.label}
+                      </Link>
+                      .
+                    </>
+                  ) : null}
+                </p>
               </div>
             ))}
           </div>
@@ -207,17 +237,30 @@ export function HomePage() {
                     </Badge>
                   ))}
                 </div>
-                {project.github && (
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mt-3 transition-colors"
-                  >
-                    <Github className="h-3.5 w-3.5" />
-                    Source
-                  </Link>
-                )}
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-3">
+                  {project.github && (
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Github className="h-3.5 w-3.5" />
+                      Source
+                    </Link>
+                  )}
+                  {project.externalUrl && (
+                    <Link
+                      href={project.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {project.externalLabel ?? 'Link'}
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </Link>
+                  )}
+                </div>
               </div>
             ))}
           </div>

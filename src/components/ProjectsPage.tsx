@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Github, Linkedin, ArrowLeft } from 'lucide-react'
+import { Github, Linkedin, ArrowLeft, ArrowUpRight } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { Badge } from '@/components/ui/badge'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail'
@@ -109,17 +109,30 @@ export function ProjectsPage() {
                     </Badge>
                   ))}
                 </div>
-                {project.github && (
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <Github className="h-3.5 w-3.5" />
-                    Source
-                  </Link>
-                )}
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+                  {project.github && (
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Github className="h-3.5 w-3.5" />
+                      Source
+                    </Link>
+                  )}
+                  {project.externalUrl && (
+                    <Link
+                      href={project.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {project.externalLabel ?? 'Link'}
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           ))}
