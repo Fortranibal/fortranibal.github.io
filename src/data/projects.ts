@@ -21,6 +21,9 @@ export interface ProjectMedia {
     category: string[];         //'aerospace' | 'computer-science' | 'finance';
     technologies: string[];
     github?: string;
+    /** Optional external resource link shown on project cards (paper, thesis, etc.). */
+    externalUrl?: string;
+    externalLabel?: string;
     additionalMedia: ProjectMedia[];
     achievements: string[];     
     isWide?: boolean;
@@ -350,6 +353,8 @@ export interface ProjectMedia {
             //     description: 'Final reconstructed asteroid model from multiple viewing angles'
             // }
         ],
+        externalUrl: 'https://elib.dlr.de/213747/',
+        externalLabel: 'Thesis (DLR elib)',
         achievements: [
             'Implemented a robust feature detection and matching system for processing asteroid surface imagery',
             'Developed a relative pose estimation algorithm using Essential and Fundamental matrix calculations',
@@ -372,6 +377,8 @@ export interface ProjectMedia {
             },
         category: ['computer-science', 'aerospace'],
         technologies: ['Computer Vision', 'Deep Learning', 'Python', 'Blender', 'R&D'],
+        externalUrl: 'https://doi.org/10.1109/AERO63441.2025.11068790',
+        externalLabel: 'IEEE paper (DOI)',
         additionalMedia: [
             {
                 type: 'image',
@@ -384,7 +391,7 @@ export interface ProjectMedia {
                 type: 'image',
                 src: '/media/projects/11-Semesterarbeit/Aeroconf 2025.png',
                 alt: 'Co-authored Aeroconf 2025 paper',
-                description: 'Co-authored a paper for the IEEE Aerospace Conference 2025, focusing on landing trajectory simulations on asteroids - "Bridging the Data Gap of Asteroid Exploration: OAISYS Extension for Synthetic Asteroids Creation" (Paper No. 2696, 10.0815)',
+                description: 'Co-authored a paper for the IEEE Aerospace Conference 2025, focusing on landing trajectory simulations on asteroids - "Bridging the Data Gap of Asteroid Exploration: OAISYS Extension for Synthetic Asteroids Creation" (DOI 10.1109/AERO63441.2025.11068790, Paper No. 2696)',
                 aspectRatio: '1:1'
             },
             {
@@ -405,7 +412,7 @@ export interface ProjectMedia {
         achievements: [
             'Designed novel pipeline enhancing OAISYS capabilities with asteroid trajectory generation',
             'Created comprehensive RGB-D images, depth maps and 6D pose data',
-            'Co-authored paper submitted to AeroConf 2025 IEEE Aerospace Conference',
+            'Co-authored paper published at AeroConf 2025 IEEE Aerospace Conference (DOI 10.1109/AERO63441.2025.11068790)',
             'Generated over 30,000 diverse asteroid samples',
             'Successfully integrated with YOLOv7 object detection'
         ],
