@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail'
 import { SocialLinks } from '@/components/SocialLinks'
 import { getFeaturedProjects } from '@/data/projects'
-import { HOMEPAGE_PUBLICATIONS } from '@/lib/structured-data'
+import { HOMEPAGE_PRESS, HOMEPAGE_PUBLICATIONS } from '@/lib/structured-data'
 
 const ThemeToggle = dynamic(() => import('@/components/ThemeToggle'), { ssr: false })
 
@@ -305,6 +305,29 @@ export function HomePage() {
                 {HOMEPAGE_PUBLICATIONS.studentThesis.year}.
               </p>
             </div>
+          </div>
+
+          <h3 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mt-12 mb-6">
+            In the press
+          </h3>
+          <div>
+            <p className="text-sm text-foreground/80 leading-relaxed">
+              {HOMEPAGE_PRESS.diarioIbiza2024.publisher},{' '}
+              {HOMEPAGE_PRESS.diarioIbiza2024.dateLabel}, by{' '}
+              {HOMEPAGE_PRESS.diarioIbiza2024.author}, &lsquo;
+              <Link
+                href={HOMEPAGE_PRESS.diarioIbiza2024.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                {HOMEPAGE_PRESS.diarioIbiza2024.title}
+              </Link>
+              &rsquo;.
+            </p>
+            <p className="text-xs text-muted-foreground leading-relaxed mt-1.5">
+              {HOMEPAGE_PRESS.diarioIbiza2024.englishGloss}
+            </p>
           </div>
         </section>
 

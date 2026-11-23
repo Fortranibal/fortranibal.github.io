@@ -5,6 +5,7 @@ export const SITE_CANONICAL_URL = `${SITE_URL}/`
 export const PERSON_HEADSHOT_URL = HEADSHOT_URL
 export const PERSON_ID = `${SITE_URL}/#person`
 export const TUM_ID = `${SITE_URL}/#organization-tum`
+export const PRESS_DIARIO_IBIZA_ID = `${SITE_URL}/#press-diario-ibiza-2024`
 
 /** Profiles clearly linked from the site (plus LinkedIn URL normalized to the canonical form). */
 export const PERSON_ORCID = 'https://orcid.org/0009-0004-2571-2853'
@@ -81,6 +82,22 @@ export const HOMEPAGE_PUBLICATIONS = {
   },
 } as const
 
+/** Homepage press mentions — verified facts only. */
+export const HOMEPAGE_PRESS = {
+  diarioIbiza2024: {
+    publisher: 'Diario de Ibiza',
+    datePublished: '2024-07-12',
+    dateLabel: '12 July 2024',
+    author: 'Maite Alvite',
+    title:
+      'Un ingeniero aeroespacial de Ibiza en la competición universitaria de cohetes más importante del mundo',
+    englishGloss:
+      'An aerospace engineer from Ibiza in the world’s most important university rocket competition — covering WARR Rocketry’s WESP project and EX-1E’s 3rd-place finish at the 2024 Spaceport America Cup.',
+    url: 'https://www.diariodeibiza.es/ibiza/2024/07/12/ingeniero-aeroespacial-ibiza-competicion-universitaria-105521355.html',
+    inLanguage: 'es',
+  },
+} as const
+
 const TUM_ORGANIZATION = {
   '@type': 'CollegeOrUniversity',
   '@id': TUM_ID,
@@ -118,7 +135,33 @@ export function buildPersonJsonLd() {
       value: PERSON_ORCID,
     },
     sameAs: [...PERSON_SAME_AS],
+    subjectOf: { '@id': PRESS_DIARIO_IBIZA_ID },
   }
+}
+
+export function buildNewsArticleJsonLd() {
+  const press = HOMEPAGE_PRESS.diarioIbiza2024
+
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      '@id': PRESS_DIARIO_IBIZA_ID,
+      headline: press.title,
+      datePublished: press.datePublished,
+      url: press.url,
+      inLanguage: press.inLanguage,
+      author: {
+        '@type': 'Person',
+        name: press.author,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: press.publisher,
+      },
+      about: { '@id': PERSON_ID },
+    },
+  ]
 }
 
 export function buildScholarlyArticleJsonLd() {
@@ -215,6 +258,7 @@ export function buildHomepageJsonLdGraph() {
       withoutContext({ '@context': 'https://schema.org', ...TUM_ORGANIZATION }),
       ...buildScholarlyArticleJsonLd().map(withoutContext),
       ...buildThesisJsonLd().map(withoutContext),
+      ...buildNewsArticleJsonLd().map(withoutContext),
     ],
   }
 }
