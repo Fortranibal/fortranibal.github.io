@@ -3,14 +3,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Github, ArrowUpRight } from 'lucide-react'
-import dynamic from 'next/dynamic'
 import { Badge } from '@/components/ui/badge'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail'
 import { SocialLinks } from '@/components/SocialLinks'
+import { SiteHeader, navLinkClassName } from '@/components/SiteHeader'
 import { getFeaturedProjects } from '@/data/projects'
 import { HOMEPAGE_PRESS, HOMEPAGE_PUBLICATIONS } from '@/lib/structured-data'
-
-const ThemeToggle = dynamic(() => import('@/components/ThemeToggle'), { ssr: false })
 
 function AuthorList({
   authors,
@@ -105,45 +103,34 @@ export function HomePage() {
   const featuredProjects = getFeaturedProjects()
 
   return (
-    <div className="min-h-screen">
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/40">
-        <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
-          <span className="text-sm font-medium text-foreground">
-            Anibal Guerrero Hernandez
-          </span>
-          <div className="flex items-center gap-5">
-            <Link
-              href="#publications"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
+    <div className="min-h-screen overflow-x-hidden">
+      <SiteHeader
+        brandLabel="Anibal Guerrero Hernandez"
+        brandShortLabel="Anibal G. H."
+        navLinks={
+          <>
+            <Link href="#publications" className={navLinkClassName}>
               Publications
             </Link>
-            <Link
-              href="/projects"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
+            <Link href="/projects" className={navLinkClassName}>
               Projects
             </Link>
-            <div className="flex items-center gap-3">
-              <SocialLinks />
-              <ThemeToggle />
-            </div>
-          </div>
-        </div>
-      </header>
+          </>
+        }
+      />
 
-      <main className="max-w-3xl mx-auto px-6">
+      <main className="max-w-3xl mx-auto w-full px-5 sm:px-6 min-w-0">
         {/* Hero */}
         <section className="pt-20 pb-16">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-3">
                 Anibal Guerrero<br />Hernandez
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
                 Aerospace Engineer · AI Enthusiast
               </p>
-              <p className="text-[15px] leading-relaxed text-foreground/80 max-w-lg">
+              <p className="text-[15px] leading-relaxed text-foreground/80 max-w-lg break-words">
                 GNC Engineer at Rocket Lab and founder of{' '}
                 <Link href="https://tryreflektion.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                   Reflektion
@@ -221,8 +208,8 @@ export function HomePage() {
             Publications
           </h2>
           <div className="space-y-8">
-            <div>
-              <p className="text-sm text-foreground/80 leading-relaxed">
+            <div className="min-w-0">
+              <p className="text-sm text-foreground/80 leading-relaxed break-words [overflow-wrap:anywhere]">
                 <AuthorList authors={HOMEPAGE_PUBLICATIONS.aeroconf2025.authors} />
                 {', '}
                 &lsquo;
@@ -230,7 +217,7 @@ export function HomePage() {
                   href={HOMEPAGE_PUBLICATIONS.aeroconf2025.doiUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-primary hover:underline break-words"
                 >
                   {HOMEPAGE_PUBLICATIONS.aeroconf2025.title}
                 </Link>
@@ -240,7 +227,7 @@ export function HomePage() {
                   href={HOMEPAGE_PUBLICATIONS.aeroconf2025.doiUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-primary hover:underline break-all"
                 >
                   {HOMEPAGE_PUBLICATIONS.aeroconf2025.doi}
                 </Link>
@@ -255,14 +242,14 @@ export function HomePage() {
                 </Link>
                 . {HOMEPAGE_PUBLICATIONS.aeroconf2025.awardLabel}.
               </p>
-              <p className="text-sm text-foreground/60 leading-relaxed mt-2">
+              <p className="text-sm text-foreground/60 leading-relaxed mt-2 break-words [overflow-wrap:anywhere]">
                 Cited by:{' '}
                 {HOMEPAGE_PUBLICATIONS.aeroconf2025.citedBy.authors}, &lsquo;
                 <Link
                   href={HOMEPAGE_PUBLICATIONS.aeroconf2025.citedBy.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-primary hover:underline break-words"
                 >
                   {HOMEPAGE_PUBLICATIONS.aeroconf2025.citedBy.title}
                 </Link>
@@ -270,8 +257,8 @@ export function HomePage() {
               </p>
             </div>
 
-            <div>
-              <p className="text-sm text-foreground/80 leading-relaxed">
+            <div className="min-w-0">
+              <p className="text-sm text-foreground/80 leading-relaxed break-words [overflow-wrap:anywhere]">
                 <AuthorList authors={HOMEPAGE_PUBLICATIONS.masterThesis.authors} />
                 {', '}
                 &lsquo;
@@ -279,7 +266,7 @@ export function HomePage() {
                   href={HOMEPAGE_PUBLICATIONS.masterThesis.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-primary hover:underline break-words"
                 >
                   {HOMEPAGE_PUBLICATIONS.masterThesis.title}
                 </Link>
@@ -288,8 +275,8 @@ export function HomePage() {
               </p>
             </div>
 
-            <div>
-              <p className="text-sm text-foreground/80 leading-relaxed">
+            <div className="min-w-0">
+              <p className="text-sm text-foreground/80 leading-relaxed break-words [overflow-wrap:anywhere]">
                 <AuthorList authors={HOMEPAGE_PUBLICATIONS.studentThesis.authors} />
                 {', '}
                 &lsquo;
@@ -297,7 +284,7 @@ export function HomePage() {
                   href={HOMEPAGE_PUBLICATIONS.studentThesis.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-primary hover:underline break-words"
                 >
                   {HOMEPAGE_PUBLICATIONS.studentThesis.title}
                 </Link>
@@ -310,8 +297,8 @@ export function HomePage() {
           <h3 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mt-12 mb-6">
             In the press
           </h3>
-          <div>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+          <div className="min-w-0">
+            <p className="text-sm text-foreground/80 leading-relaxed break-words [overflow-wrap:anywhere]">
               {HOMEPAGE_PRESS.diarioIbiza2024.publisher},{' '}
               {HOMEPAGE_PRESS.diarioIbiza2024.dateLabel}, by{' '}
               {HOMEPAGE_PRESS.diarioIbiza2024.author}, &lsquo;
@@ -319,13 +306,13 @@ export function HomePage() {
                 href={HOMEPAGE_PRESS.diarioIbiza2024.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:underline"
+                className="text-primary hover:underline break-words"
               >
                 {HOMEPAGE_PRESS.diarioIbiza2024.title}
               </Link>
               &rsquo;.
             </p>
-            <p className="text-xs text-muted-foreground leading-relaxed mt-1.5">
+            <p className="text-xs text-muted-foreground leading-relaxed mt-1.5 break-words">
               {HOMEPAGE_PRESS.diarioIbiza2024.englishGloss}
             </p>
           </div>
@@ -421,11 +408,11 @@ export function HomePage() {
       </main>
 
       <footer className="border-t border-border/60">
-        <div className="max-w-3xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+        <div className="max-w-3xl mx-auto w-full px-5 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 min-w-0">
+          <p className="text-sm text-muted-foreground text-center sm:text-left">
             © {new Date().getFullYear()} Anibal Guerrero Hernandez
           </p>
-          <SocialLinks className="flex items-center gap-4" />
+          <SocialLinks className="flex items-center gap-4 flex-wrap justify-center" />
         </div>
       </footer>
     </div>
