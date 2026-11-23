@@ -5,6 +5,7 @@ export const SITE_CANONICAL_URL = `${SITE_URL}/`
 export const PERSON_HEADSHOT_URL = HEADSHOT_URL
 export const PERSON_ID = `${SITE_URL}/#person`
 export const TUM_ID = `${SITE_URL}/#organization-tum`
+export const PRESS_DIARIO_IBIZA_ID = `${SITE_URL}/#press-diario-ibiza-2024`
 
 /** Profiles clearly linked from the site (plus LinkedIn URL normalized to the canonical form). */
 export const PERSON_ORCID = 'https://orcid.org/0009-0004-2571-2853'
@@ -30,6 +31,70 @@ export const PUBLICATION_LINKS = {
   },
   exploringAsteroidsSurvey: {
     elibUrl: 'https://elib.dlr.de/208193/',
+  },
+  citedByVisionBeyondEarth: {
+    elibUrl: 'https://elib.dlr.de/224189/',
+  },
+} as const
+
+/** Homepage Publications section — verified facts only. */
+export const HOMEPAGE_PUBLICATIONS = {
+  aeroconf2025: {
+    authors: [
+      { name: 'M. G. Müller' },
+      { name: 'W. Boerdijk' },
+      { name: 'A. G. Hernandez', isOwner: true },
+      { name: 'L. Klüpfel' },
+      { name: 'M. Durner' },
+      { name: 'R. Triebel' },
+    ],
+    title:
+      'Bridging the Data Gap of Asteroid Exploration: OAISYS Extension for Synthetic Asteroids Creation',
+    venue: '2025 IEEE Aerospace Conference',
+    pages: 'pp. 1-13',
+    doi: PUBLICATION_LINKS.aeroconf2025.doi,
+    doiUrl: PUBLICATION_LINKS.aeroconf2025.doiUrl,
+    elibUrl: PUBLICATION_LINKS.aeroconf2025.elibUrl,
+    /** Exact award wording already used on the DLR experience entry. */
+    awardLabel: 'IEEE Aerospace Conference 2025 Track Best Paper',
+    citedBy: {
+      authors: 'M. G. Müller et al.',
+      title:
+        'Vision Beyond Earth: Synthetic Satellite Data for Neural Perception in Orbit',
+      affiliation: 'DLR / ETH Zurich',
+      url: PUBLICATION_LINKS.citedByVisionBeyondEarth.elibUrl,
+    },
+  },
+  masterThesis: {
+    authors: [{ name: 'Anibal Guerrero Hernandez', isOwner: true }],
+    title:
+      'A Comparative Study of Classical and Learning-Based Methods for Vision-Aided Close-Proximity Asteroid Exploration',
+    kind: "Master's thesis",
+    year: '2025',
+    url: PUBLICATION_LINKS.masterThesis.elibUrl,
+  },
+  studentThesis: {
+    authors: [{ name: 'Anibal Guerrero Hernandez', isOwner: true }],
+    title: 'Exploring Asteroids: A Survey',
+    kind: 'Student thesis',
+    year: '2024',
+    url: PUBLICATION_LINKS.exploringAsteroidsSurvey.elibUrl,
+  },
+} as const
+
+/** Homepage press mentions — verified facts only. */
+export const HOMEPAGE_PRESS = {
+  diarioIbiza2024: {
+    publisher: 'Diario de Ibiza',
+    datePublished: '2024-07-12',
+    dateLabel: '12 July 2024',
+    author: 'Maite Alvite',
+    title:
+      'Un ingeniero aeroespacial de Ibiza en la competición universitaria de cohetes más importante del mundo',
+    englishGloss:
+      'An aerospace engineer from Ibiza in the world’s most important university rocket competition — covering WARR Rocketry’s WESP project and EX-1E’s 3rd-place finish at the 2024 Spaceport America Cup.',
+    url: 'https://www.diariodeibiza.es/ibiza/2024/07/12/ingeniero-aeroespacial-ibiza-competicion-universitaria-105521355.html',
+    inLanguage: 'es',
   },
 } as const
 
@@ -70,7 +135,33 @@ export function buildPersonJsonLd() {
       value: PERSON_ORCID,
     },
     sameAs: [...PERSON_SAME_AS],
+    subjectOf: { '@id': PRESS_DIARIO_IBIZA_ID },
   }
+}
+
+export function buildNewsArticleJsonLd() {
+  const press = HOMEPAGE_PRESS.diarioIbiza2024
+
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      '@id': PRESS_DIARIO_IBIZA_ID,
+      headline: press.title,
+      datePublished: press.datePublished,
+      url: press.url,
+      inLanguage: press.inLanguage,
+      author: {
+        '@type': 'Person',
+        name: press.author,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: press.publisher,
+      },
+      about: { '@id': PERSON_ID },
+    },
+  ]
 }
 
 export function buildScholarlyArticleJsonLd() {
@@ -87,12 +178,18 @@ export function buildScholarlyArticleJsonLd() {
       author: [
         { '@type': 'Person', name: 'Marcus Gerhard Müller' },
         { '@type': 'Person', name: 'Wout Boerdijk' },
-        { '@id': PERSON_ID },
+        {
+          '@type': 'Person',
+          '@id': PERSON_ID,
+          name: 'Anibal Guerrero Hernandez',
+        },
         { '@type': 'Person', name: 'Leonard Klüpfel' },
         { '@type': 'Person', name: 'Maximilian Durner' },
         { '@type': 'Person', name: 'Rudolph Triebel' },
       ],
       datePublished: '2025-07-14',
+      pageStart: '1',
+      pageEnd: '13',
       isPartOf: {
         '@type': 'CreativeWork',
         name: '2025 IEEE Aerospace Conference (AERO 2025)',
@@ -161,6 +258,7 @@ export function buildHomepageJsonLdGraph() {
       withoutContext({ '@context': 'https://schema.org', ...TUM_ORGANIZATION }),
       ...buildScholarlyArticleJsonLd().map(withoutContext),
       ...buildThesisJsonLd().map(withoutContext),
+      ...buildNewsArticleJsonLd().map(withoutContext),
     ],
   }
 }
