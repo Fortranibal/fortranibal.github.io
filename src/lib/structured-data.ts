@@ -10,6 +10,7 @@ export const TUM_ID = `${SITE_URL}/#organization-tum`
 export const PERSON_SAME_AS = [
   'https://www.linkedin.com/in/anibal-guerrero/',
   'https://github.com/Fortranibal',
+  'https://scholar.google.com/citations?user=t6kLm3cAAAAJ',
   'https://x.com/fortranibal',
 ] as const
 
